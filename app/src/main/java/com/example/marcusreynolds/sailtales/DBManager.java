@@ -31,6 +31,7 @@ public class DBManager {
         dbHelper.close();
     }
 
+    //Creating DB record
     public void insert(String sloc, String floc, String boat, String wt, String dsnm, String mb) {
         ContentValues contentValue = new ContentValues();
         contentValue.put(DatabaseHelper.SLOC, sloc);
@@ -43,14 +44,14 @@ public class DBManager {
     }
 
     public Cursor fetch() {
-        String[] columns = new String[] { DatabaseHelper._ID, DatabaseHelper.SLOC, DatabaseHelper.FLOC };
+        String[] columns = new String[] { DatabaseHelper._ID, DatabaseHelper.SLOC ,DatabaseHelper.DSNM, DatabaseHelper.FLOC };
         Cursor cursor = database.query(DatabaseHelper.TABLE_NAME, columns, null, null, null, null, null);
         if (cursor != null) {
             cursor.moveToFirst();
         }
         return cursor;
     }
-
+    //Updating DB record
     public int update(long _id, String sloc, String floc, String boat, String wt, String dsnm, String mb) {
         ContentValues contentValues = new ContentValues();
         contentValues.put(DatabaseHelper.SLOC, sloc);
@@ -62,7 +63,7 @@ public class DBManager {
         int i = database.update(DatabaseHelper.TABLE_NAME, contentValues, DatabaseHelper._ID + " = " + _id, null);
         return i;
     }
-
+    //Deleting DB record
     public void delete(long _id) {
         database.delete(DatabaseHelper.TABLE_NAME, DatabaseHelper._ID + "=" + _id, null);
     }

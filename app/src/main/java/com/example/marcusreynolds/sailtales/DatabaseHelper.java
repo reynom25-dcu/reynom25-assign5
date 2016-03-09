@@ -22,30 +22,32 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public static final String MB = "milebuilder";
 
     // Database Information
-    static final String DB_NAME = "SAIL_TALES.DB";
+    static final String DB_NAME = "SAIL_TALES2.DB";
 
     // database version
     static final int DB_VERSION = 1;
 
-    // Creating table query
+    // Creating DB table query
     private static final String CREATE_TABLE = "create table " + TABLE_NAME +
-            "(" + _ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
+            "( " + _ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
             + SLOC + " TEXT NOT NULL, "
+            + DSNM + " TEXT, "
             + FLOC + " TEXT NOT NULL, "
             + BOAT + " TEXT, "
             + WT + " TEXT, "
-            + MB + " INTEGER, "
-            + DSNM + " TEXT NOT NULL);";
+            + MB + " TEXT);";
 
     public DatabaseHelper(Context context) {
         super(context, DB_NAME, null, DB_VERSION);
     }
 
+    //Oncreate make DB and table
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL(CREATE_TABLE);
     }
 
+    //Upgrade DB Check
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME);
