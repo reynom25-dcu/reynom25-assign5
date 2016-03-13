@@ -7,16 +7,16 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
-import java.util.List;
 
 public class AddTrip extends Activity implements View.OnClickListener {
 
     private Button addButton;
     private EditText slocEditText;
     private EditText flocEditText;
+    private EditText dsnmEditText;
+    private EditText descEditText;
 
     private DBManager dbManager;
 
@@ -30,6 +30,8 @@ public class AddTrip extends Activity implements View.OnClickListener {
 
         slocEditText = (EditText) findViewById(R.id.slocadd_edittext);
         flocEditText = (EditText) findViewById(R.id.flocadd_edittext);
+        dsnmEditText = (EditText) findViewById(R.id.dsnmadd_edittext);
+        descEditText = (EditText) findViewById(R.id.descadd_edittext);
 
         addButton = (Button) findViewById(R.id.add_trip);
 
@@ -45,12 +47,11 @@ public class AddTrip extends Activity implements View.OnClickListener {
 
                 final String sloc = slocEditText.getText().toString();
                 final String floc = flocEditText.getText().toString();
-                final String boat = flocEditText.getText().toString();
-                final String wt = flocEditText.getText().toString();
-                final String dsnm = flocEditText.getText().toString();
-                final String mb = flocEditText.getText().toString();
+                final String dsnm = dsnmEditText.getText().toString();
+                final String desc = descEditText.getText().toString();
 
-                dbManager.insert(sloc, floc, boat, wt, dsnm, mb);
+
+                dbManager.insert(sloc, floc, dsnm, desc);
 
                 Intent main = new Intent(AddTrip.this, ListTrips.class)
                         .setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);

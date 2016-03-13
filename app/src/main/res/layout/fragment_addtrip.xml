@@ -25,7 +25,16 @@
     </EditText>
 
     <EditText
-        android:id="@+id/description_edittext"
+        android:id="@+id/dsnmadd_edittext"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="30"
+        android:hint="Distance Covered NM" >
+
+    </EditText>
+
+    <EditText
+        android:id="@+id/descadd_edittext"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="30"

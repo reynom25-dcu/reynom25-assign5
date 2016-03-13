@@ -19,10 +19,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public static final String BOAT = "boat";
     public static final String WT = "weather";
     public static final String DSNM = "distance";
+    public static final String DESC = "description";
     public static final String MB = "milebuilder";
 
     // Database Information
-    static final String DB_NAME = "SAIL_TALES2.DB";
+    static final String DB_NAME = "SAIL_TALES7.DB";
 
     // database version
     static final int DB_VERSION = 1;
@@ -32,7 +33,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             "( " + _ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
             + SLOC + " TEXT NOT NULL, "
             + DSNM + " TEXT, "
-            + FLOC + " TEXT NOT NULL, "
+            + DESC + " TEXT, "
+            + FLOC + " TEXT, "
             + BOAT + " TEXT, "
             + WT + " TEXT, "
             + MB + " TEXT);";

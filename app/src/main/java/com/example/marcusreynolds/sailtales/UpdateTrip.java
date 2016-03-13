@@ -48,12 +48,11 @@ public class UpdateTrip extends Activity implements View.OnClickListener {
 
                 final String sloc = slocEditText.getText().toString();
                 final String floc = flocEditText.getText().toString();
-                final String boat = flocEditText.getText().toString();
-                final String wt = flocEditText.getText().toString();
-                final String dsnm = flocEditText.getText().toString();
-                final String mb = flocEditText.getText().toString();
+                final String dsnm = slocEditText.getText().toString();
+                final String desc = flocEditText.getText().toString();
 
-                dbManager.insert(sloc, floc, boat, wt, dsnm, mb);
+
+                dbManager.insert(sloc, floc, dsnm, desc);
 
                 Intent main = new Intent(UpdateTrip.this, ListTrips.class)
                         .setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);

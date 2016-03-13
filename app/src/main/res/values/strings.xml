@@ -8,4 +8,5 @@
     <string name="trip_description">Trip Description</string>
     <string name="finish_location">Finish Location</string>
     <string name="addrecord">Add Record</string>
+    <string name="description">Description of trip</string>
 </resources>
