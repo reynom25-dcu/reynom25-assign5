@@ -21,6 +21,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public static final String DSNM = "distance";
     public static final String DESC = "description";
     public static final String MB = "milebuilder";
+    public static final String DATEC = "date_created";
 
     // Database Information
     static final String DB_NAME = "SAIL_TALES7.DB";
@@ -37,7 +38,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             + FLOC + " TEXT, "
             + BOAT + " TEXT, "
             + WT + " TEXT, "
+            + DATEC + " DATETIME DEFAULT CURRENT_TIMESTAMP, "
             + MB + " TEXT);";
+
 
     public DatabaseHelper(Context context) {
         super(context, DB_NAME, null, DB_VERSION);

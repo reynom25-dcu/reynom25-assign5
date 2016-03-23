@@ -27,7 +27,7 @@ public class UpdateTrip extends Activity implements View.OnClickListener {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        setTitle("Add Record");
+        setTitle("Update Trip");
 
         setContentView(R.layout.fragment_addtrip);
 

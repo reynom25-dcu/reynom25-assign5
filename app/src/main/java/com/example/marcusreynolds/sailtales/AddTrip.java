@@ -4,11 +4,13 @@ package com.example.marcusreynolds.sailtales;
  * Created by Marcus Reynolds
  */
 import android.app.Activity;
+import android.app.DialogFragment;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 public class AddTrip extends Activity implements View.OnClickListener {
 
@@ -17,6 +19,7 @@ public class AddTrip extends Activity implements View.OnClickListener {
     private EditText flocEditText;
     private EditText dsnmEditText;
     private EditText descEditText;
+    private TextView stimeViewText;
 
     private DBManager dbManager;
 
@@ -32,6 +35,7 @@ public class AddTrip extends Activity implements View.OnClickListener {
         flocEditText = (EditText) findViewById(R.id.flocadd_edittext);
         dsnmEditText = (EditText) findViewById(R.id.dsnmadd_edittext);
         descEditText = (EditText) findViewById(R.id.descadd_edittext);
+        stimeViewText = (TextView) findViewById(R.id.stimeadd_viewtext);
 
         addButton = (Button) findViewById(R.id.add_trip);
 
@@ -39,6 +43,18 @@ public class AddTrip extends Activity implements View.OnClickListener {
         dbManager.open();
         addButton.setOnClickListener(this);
     }
+
+    public void showDatePickerDialog(View v) {
+        DialogFragment newFragment = new DatePickerFragment();
+        newFragment.show(getFragmentManager(), "datePicker");
+
+    }
+
+    public void showTimePickerDialog(View v) {
+        DialogFragment newFragment = new TimePickerFragment();
+        newFragment.show(getFragmentManager(), "timePicker");
+    }
+
 
     @Override
     public void onClick(View v) {
@@ -60,5 +76,7 @@ public class AddTrip extends Activity implements View.OnClickListener {
                 break;
         }
     }
+
+
 
 }
