@@ -8,6 +8,7 @@ import android.app.Dialog;
 import android.app.DialogFragment;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.TextView;
 
@@ -29,7 +30,8 @@ public class DatePickerFragment extends DialogFragment implements DatePickerDial
     public void onDateSet(DatePicker view, int year, int month, int day) {
 // Do something with the date chosen by the user
         Log.w("DatePicker", "Date = " + year);
-        ((TextView) getActivity().findViewById(R.id.sdateadd_viewtext)).setText("Date = " + year);
+        ((TextView) getActivity().findViewById(R.id.sdateadd_viewtext)).setText(day + "/" + month + "/" + year);
+        ((Button) getActivity().findViewById(R.id.add_date)).setText(day + "/" + month + "/" + year);
     }
 }
 

@@ -22,9 +22,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public static final String DESC = "description";
     public static final String MB = "milebuilder";
     public static final String DATEC = "date_created";
+    public static final String STIME = "starttime";
+    public static final String SDATE = "startdate";
 
     // Database Information
-    static final String DB_NAME = "SAIL_TALES7.DB";
+    static final String DB_NAME = "SAIL_TALES9.DB";
 
     // database version
     static final int DB_VERSION = 1;
@@ -38,6 +40,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             + FLOC + " TEXT, "
             + BOAT + " TEXT, "
             + WT + " TEXT, "
+            + STIME + " TEXT, "
+            + SDATE + " TEXT, "
             + DATEC + " DATETIME DEFAULT CURRENT_TIMESTAMP, "
             + MB + " TEXT);";
 

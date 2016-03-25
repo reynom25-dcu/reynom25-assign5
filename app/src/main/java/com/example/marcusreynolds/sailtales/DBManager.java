@@ -32,20 +32,20 @@ public class DBManager {
     }
 
     //Creating DB record
-    public void insert(String sloc, String floc, String dsnm, String desc) {
+    public void insert(String sloc, String floc, String dsnm, String desc, String stime, String sdate) {
         ContentValues contentValue = new ContentValues();
         contentValue.put(DatabaseHelper.SLOC, sloc);
         contentValue.put(DatabaseHelper.FLOC, floc);
         contentValue.put(DatabaseHelper.DSNM, dsnm);
         contentValue.put(DatabaseHelper.DESC, desc);
-        //contentValue.put(DatabaseHelper.BOAT, boat);
-        //contentValue.put(DatabaseHelper.WT, wt);
+        contentValue.put(DatabaseHelper.STIME, stime);
+        contentValue.put(DatabaseHelper.SDATE, sdate);
         //contentValue.put(DatabaseHelper.MB, mb);
         database.insert(DatabaseHelper.TABLE_NAME, null, contentValue);
     }
 
     public Cursor fetch() {
-        String[] columns = new String[] { DatabaseHelper._ID, DatabaseHelper.SLOC, DatabaseHelper.FLOC, DatabaseHelper.DSNM, DatabaseHelper.DESC, };
+        String[] columns = new String[] { DatabaseHelper._ID, DatabaseHelper.SLOC, DatabaseHelper.FLOC, DatabaseHelper.DSNM, DatabaseHelper.SDATE, };
         Cursor cursor = database.query(DatabaseHelper.TABLE_NAME, columns, null, null, null, null, null);
         if (cursor != null) {
             cursor.moveToFirst();
@@ -53,15 +53,14 @@ public class DBManager {
         return cursor;
     }
     //Updating DB record
-    public int update(long _id, String sloc, String floc, String dsnm, String desc, String boat, String wt, String mb) {
+    public int update(long _id, String sloc, String floc, String dsnm, String desc, String stime, String sdate) {
         ContentValues contentValues = new ContentValues();
         contentValues.put(DatabaseHelper.SLOC, sloc);
         contentValues.put(DatabaseHelper.FLOC, floc);
         contentValues.put(DatabaseHelper.DSNM, dsnm);
         contentValues.put(DatabaseHelper.DESC, desc);
-        contentValues.put(DatabaseHelper.BOAT, boat);
-        contentValues.put(DatabaseHelper.WT, wt);
-        contentValues.put(DatabaseHelper.MB, mb);
+        contentValues.put(DatabaseHelper.STIME, stime);
+        contentValues.put(DatabaseHelper.SDATE, sdate);
         int i = database.update(DatabaseHelper.TABLE_NAME, contentValues, DatabaseHelper._ID + " = " + _id, null);
         return i;
     }

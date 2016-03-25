@@ -5,23 +5,158 @@
     android:orientation="vertical" >
 
     <!-- Displays Summary in listview-->
+
+
     <TextView
-        android:id="@+id/textView1"
+        android:id="@+id/tripView1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:text="Trip: "
+        android:layout_weight="1"
+        android:layout_gravity="left"
+        android:gravity="center_vertical"
+        android:text="Trip Number: "
+        android:textColor="#1b258b"
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/id"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/textView1"
-        android:layout_below="@+id/textView1"
-        android:text="Distance: "
+        android:layout_gravity="right"
+        android:layout_toRightOf="@id/tripView1"
+        android:textColor="#000000"
+        android:text="TextView"
+        android:textAppearance="?android:attr/textAppearanceMedium"/>
+
+    <TextView
+        android:id="@+id/dateView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right"
+        android:layout_below="@id/tripView1"
+        android:layout_marginTop="4dp"
+        android:textColor="#1b258b"
+        android:text="Date: "
         android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <TextView
+        android:id="@+id/sdate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tripView1"
+        android:gravity="center_vertical"
+        android:layout_marginTop="4dp"
+        android:textColor="#000000"
+        android:layout_gravity="right"
+        android:layout_toRightOf="@id/dateView1"
+
+        android:textAppearance="?android:attr/textAppearanceMedium"/>
+
+    <TextView
+        android:id="@+id/dsnmView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/dateView1"
+        android:layout_marginTop="4dp"
+        android:layout_weight="1"
+        android:layout_gravity="left"
+        android:textColor="#1b258b"
+        android:text="Distance KN: "
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <TextView
+        android:id="@+id/dsnm"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:layout_marginTop="4dp"
+        android:layout_gravity="right"
+        android:textColor="#000000"
+        android:layout_below="@id/dateView1"
+        android:layout_toRightOf="@id/dsnmView1"
+        android:textAppearance="?android:attr/textAppearanceMedium"/>
+
+    <TextView
+        android:id="@+id/slocView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:layout_below="@id/dsnmView1"
+        android:layout_gravity="left"
+        android:textColor="#1b258b"
+        android:text="Start Location: "
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <TextView
+        android:id="@+id/sloc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:layout_gravity="right"
+        android:textColor="#000000"
+        android:layout_below="@id/dsnmView1"
+        android:layout_toRightOf="@id/slocView1"
+        android:textAppearance="?android:attr/textAppearanceMedium"/>
+
+
+
+
+
+
+
+
+
+    <!--
+
+<LinearLayout
+        android:id="triplay"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true">
+
+
+
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true">
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:text="Distance: "
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+
+        <TextView
+            android:id="@+id/dsnm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:layout_toRightOf="@+id/textView2"
+            android:text="TextView" />
+
+        <TextView
+            android:id="@+id/sdate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/textView3"
+            android:layout_alignBottom="@+id/textView3"
+            android:layout_toRightOf="@+id/textView3"
+            android:text="TextView" />
+
+    </LinearLayout>
+
+
 
     <TextView
         android:id="@+id/textView3"
@@ -50,21 +185,9 @@
         android:text="Description: "
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
-    <TextView
-        android:id="@+id/floc"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/textView3"
-        android:layout_alignBottom="@+id/textView3"
-        android:layout_toRightOf="@+id/textView3"
-        android:text="TextView" />
 
-    <TextView
-        android:id="@+id/dsnm"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_toRightOf="@+id/textView2"
-        android:text="TextView" />
+
+
 
     <TextView
         android:id="@+id/sloc"
@@ -74,13 +197,6 @@
         android:layout_toRightOf="@+id/textView3"
         android:text="TextView" />
 
-    <TextView
-        android:id="@+id/id"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/textView2"
-        android:layout_alignLeft="@+id/sloc"
-        android:text="TextView" />
 
     <TextView
         android:id="@+id/desc"
@@ -89,8 +205,6 @@
         android:layout_above="@+id/textView2"
         android:layout_alignLeft="@+id/textView5"
         android:text="TextView" />
-
-    <!--
 
     <TextView
         android:id="@+id/id"
@@ -129,5 +243,6 @@
 
 
         -->
+
 
 </RelativeLayout>

@@ -20,15 +20,12 @@ import android.widget.TextView;
 public class ListTrips extends AppCompatActivity {
 
     private DBManager dbManager;
-
     private ListView listView;
-
     private SimpleCursorAdapter adapter;
 
-    final String[] from = new String[] { DatabaseHelper._ID,
-            DatabaseHelper.SLOC, DatabaseHelper.FLOC, DatabaseHelper.DSNM, DatabaseHelper.DESC };
+    final String[] columns = new String[] { DatabaseHelper._ID, DatabaseHelper.SLOC, DatabaseHelper.DSNM, DatabaseHelper.SDATE };
 
-    final int[] to = new int[] { R.id.id, R.id.sloc, R.id.floc, R.id.dsnm ,R.id.desc };
+    final int[] to = new int[] { R.id.id, R.id.sloc, R.id.dsnm ,R.id.sdate };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,11 +36,12 @@ public class ListTrips extends AppCompatActivity {
         dbManager = new DBManager(this);
         dbManager.open();
         Cursor cursor = dbManager.fetch();
+        //Cursor cursor = dbManager.query(DatabaseHelper.TABLE_NAME, columns , to, null, null, null, "id asc",null);
 
         listView = (ListView) findViewById(R.id.list_view);
         listView.setEmptyView(findViewById(R.id.empty));
 
-        adapter = new SimpleCursorAdapter(this, R.layout.fragment_viewtrip, cursor, from, to, 0);
+        adapter = new SimpleCursorAdapter(this, R.layout.fragment_viewtrip, cursor, columns, to, 0);
         adapter.notifyDataSetChanged();
 
         listView.setAdapter(adapter);
@@ -54,21 +52,18 @@ public class ListTrips extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long viewId) {
                 TextView idTextView = (TextView) view.findViewById(R.id.id);
                 TextView slocTextView = (TextView) view.findViewById(R.id.sloc);
-                TextView flocTextView = (TextView) view.findViewById(R.id.floc);
                 TextView dsnmTextView = (TextView) view.findViewById(R.id.dsnm);
-                TextView descTextView = (TextView) view.findViewById(R.id.desc);
+                TextView sdateTextView = (TextView) view.findViewById(R.id.sdate);
 
                 String id = idTextView.getText().toString();
                 String sloc = slocTextView.getText().toString();
-                String floc = flocTextView.getText().toString();
                 String dsnm = dsnmTextView.getText().toString();
-                String desc = descTextView.getText().toString();
+                String sdate = sdateTextView.getText().toString();
 
                 Intent modify_intent = new Intent(getApplicationContext(), UpdateTrip.class);
                 modify_intent.putExtra("sloc", sloc);
-                modify_intent.putExtra("floc", floc);
                 modify_intent.putExtra("dsnm", dsnm);
-                modify_intent.putExtra("desc", desc);
+                modify_intent.putExtra("sdate", sdate);
                 modify_intent.putExtra("id", id);
 
                 startActivity(modify_intent);

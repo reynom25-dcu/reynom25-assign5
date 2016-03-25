@@ -20,6 +20,7 @@ public class AddTrip extends Activity implements View.OnClickListener {
     private EditText dsnmEditText;
     private EditText descEditText;
     private TextView stimeViewText;
+    private TextView sdateViewText;
 
     private DBManager dbManager;
 
@@ -36,6 +37,7 @@ public class AddTrip extends Activity implements View.OnClickListener {
         dsnmEditText = (EditText) findViewById(R.id.dsnmadd_edittext);
         descEditText = (EditText) findViewById(R.id.descadd_edittext);
         stimeViewText = (TextView) findViewById(R.id.stimeadd_viewtext);
+        sdateViewText = (TextView) findViewById(R.id.sdateadd_viewtext);
 
         addButton = (Button) findViewById(R.id.add_trip);
 
@@ -65,9 +67,11 @@ public class AddTrip extends Activity implements View.OnClickListener {
                 final String floc = flocEditText.getText().toString();
                 final String dsnm = dsnmEditText.getText().toString();
                 final String desc = descEditText.getText().toString();
+                final String stime = stimeViewText.getText().toString();
+                final String sdate = sdateViewText.getText().toString();
 
 
-                dbManager.insert(sloc, floc, dsnm, desc);
+                dbManager.insert(sloc, floc, dsnm, desc, stime, sdate);
 
                 Intent main = new Intent(AddTrip.this, ListTrips.class)
                         .setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
