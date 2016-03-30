@@ -7,6 +7,7 @@ import android.app.Activity;
 import android.app.DialogFragment;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -15,12 +16,13 @@ import android.widget.TextView;
 public class AddTrip extends Activity implements View.OnClickListener {
 
     private Button addButton;
+    private Button add_time;
+    private Button add_date;
     private EditText slocEditText;
     private EditText flocEditText;
     private EditText dsnmEditText;
     private EditText descEditText;
-    private TextView stimeViewText;
-    private TextView sdateViewText;
+    private EditText ttimeEditText;
 
     private DBManager dbManager;
 
@@ -36,8 +38,9 @@ public class AddTrip extends Activity implements View.OnClickListener {
         flocEditText = (EditText) findViewById(R.id.flocadd_edittext);
         dsnmEditText = (EditText) findViewById(R.id.dsnmadd_edittext);
         descEditText = (EditText) findViewById(R.id.descadd_edittext);
-        stimeViewText = (TextView) findViewById(R.id.stimeadd_viewtext);
-        sdateViewText = (TextView) findViewById(R.id.sdateadd_viewtext);
+        ttimeEditText = (EditText) findViewById(R.id.ttimeadd_edittext);
+        add_time = (Button) findViewById(R.id.add_time);
+        add_date = (Button) findViewById(R.id.add_date);
 
         addButton = (Button) findViewById(R.id.add_trip);
 
@@ -67,15 +70,18 @@ public class AddTrip extends Activity implements View.OnClickListener {
                 final String floc = flocEditText.getText().toString();
                 final String dsnm = dsnmEditText.getText().toString();
                 final String desc = descEditText.getText().toString();
-                final String stime = stimeViewText.getText().toString();
-                final String sdate = sdateViewText.getText().toString();
+                final String stime = add_time.getText().toString();
+                final String sdate = add_date.getText().toString();
+                final String ttime = ttimeEditText.getText().toString();
 
 
-                dbManager.insert(sloc, floc, dsnm, desc, stime, sdate);
+                dbManager.insert(sloc, floc, dsnm, desc, stime, sdate, ttime);
 
                 Intent main = new Intent(AddTrip.this, ListTrips.class)
                         .setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-
+                Log.w("Addtrip", "Desc = " + desc );
+                Log.w("Addtrip", "stime = " + stime );
+                Log.w("Addtrip", "floc = " + floc );
                 startActivity(main);
                 break;
         }

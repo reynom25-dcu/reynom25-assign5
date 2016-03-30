@@ -7,6 +7,7 @@ import android.app.TimePickerDialog;
 import android.os.Bundle;
 import android.text.format.DateFormat;
 import android.util.Log;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.TimePicker;
 
@@ -27,6 +28,7 @@ public class TimePickerFragment extends DialogFragment implements TimePickerDial
     public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
 // Do something with the time chosen by the user
         Log.w("DatePicker", "Time = " + hourOfDay + ":" + minute);
-        ((TextView) getActivity().findViewById(R.id.stimeadd_viewtext)).setText(hourOfDay + ":" + minute);
+        //((TextView) getActivity().findViewById(R.id.stimeadd_viewtext)).setText(hourOfDay + ":" + minute);
+        ((Button) getActivity().findViewById(R.id.add_time)).setText(hourOfDay + ":" + minute);
     }
 }

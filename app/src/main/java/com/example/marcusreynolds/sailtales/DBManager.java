@@ -32,7 +32,7 @@ public class DBManager {
     }
 
     //Creating DB record
-    public void insert(String sloc, String floc, String dsnm, String desc, String stime, String sdate) {
+    public void insert(String sloc, String floc, String dsnm, String desc, String stime, String sdate, String ttime) {
         ContentValues contentValue = new ContentValues();
         contentValue.put(DatabaseHelper.SLOC, sloc);
         contentValue.put(DatabaseHelper.FLOC, floc);
@@ -40,20 +40,22 @@ public class DBManager {
         contentValue.put(DatabaseHelper.DESC, desc);
         contentValue.put(DatabaseHelper.STIME, stime);
         contentValue.put(DatabaseHelper.SDATE, sdate);
+        contentValue.put(DatabaseHelper.TTIME, ttime);
         //contentValue.put(DatabaseHelper.MB, mb);
         database.insert(DatabaseHelper.TABLE_NAME, null, contentValue);
     }
 
-    public Cursor fetch() {
-        String[] columns = new String[] { DatabaseHelper._ID, DatabaseHelper.SLOC, DatabaseHelper.FLOC, DatabaseHelper.DSNM, DatabaseHelper.SDATE, };
-        Cursor cursor = database.query(DatabaseHelper.TABLE_NAME, columns, null, null, null, null, null);
+    public Cursor fetch1() {
+
+        String[] columns = new String[] { DatabaseHelper._ID, DatabaseHelper.SLOC, DatabaseHelper.FLOC, DatabaseHelper.DSNM, DatabaseHelper.SDATE, DatabaseHelper.STIME, DatabaseHelper.DESC, DatabaseHelper.TTIME };
+        Cursor cursor = database.query(DatabaseHelper.TABLE_NAME, columns, null, null, null, null, DatabaseHelper._ID+" DESC");
         if (cursor != null) {
             cursor.moveToFirst();
         }
         return cursor;
     }
     //Updating DB record
-    public int update(long _id, String sloc, String floc, String dsnm, String desc, String stime, String sdate) {
+    public int update(long _id, String sloc, String floc, String dsnm, String desc, String stime, String sdate, String ttime) {
         ContentValues contentValues = new ContentValues();
         contentValues.put(DatabaseHelper.SLOC, sloc);
         contentValues.put(DatabaseHelper.FLOC, floc);
@@ -61,6 +63,7 @@ public class DBManager {
         contentValues.put(DatabaseHelper.DESC, desc);
         contentValues.put(DatabaseHelper.STIME, stime);
         contentValues.put(DatabaseHelper.SDATE, sdate);
+        contentValues.put(DatabaseHelper.TTIME, ttime);
         int i = database.update(DatabaseHelper.TABLE_NAME, contentValues, DatabaseHelper._ID + " = " + _id, null);
         return i;
     }

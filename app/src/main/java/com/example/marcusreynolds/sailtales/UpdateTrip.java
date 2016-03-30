@@ -24,8 +24,9 @@ public class UpdateTrip extends Activity implements View.OnClickListener {
     private EditText flocEditText;
     private EditText dsnmEditText;
     private EditText descEditText;
-    private TextView stimeViewText;
-    private TextView sdateViewText;
+    private EditText ttimeEditText;
+    private Button add_time;
+    private Button add_date;
 
     private long _id;
 
@@ -45,8 +46,9 @@ public class UpdateTrip extends Activity implements View.OnClickListener {
         flocEditText = (EditText) findViewById(R.id.flocadd_edittext);
         dsnmEditText = (EditText) findViewById(R.id.dsnmadd_edittext);
         descEditText = (EditText) findViewById(R.id.descadd_edittext);
-        stimeViewText = (TextView) findViewById(R.id.stimeadd_viewtext);
-        sdateViewText = (TextView) findViewById(R.id.sdateadd_viewtext);
+        ttimeEditText = (EditText) findViewById(R.id.ttimeadd_edittext);
+        add_time = (Button) findViewById(R.id.add_time);
+        add_date = (Button) findViewById(R.id.add_date);
 
         modButton = (Button) findViewById(R.id.mod_button);
         rmButton = (Button) findViewById(R.id.rm_button);
@@ -59,6 +61,7 @@ public class UpdateTrip extends Activity implements View.OnClickListener {
         String dsnm = intent.getStringExtra("dsnm");
         String stime = intent.getStringExtra("stime");
         String sdate = intent.getStringExtra("sdate");
+        String ttime = intent.getStringExtra("ttime");
 
         _id = Long.parseLong(id);
 
@@ -66,8 +69,9 @@ public class UpdateTrip extends Activity implements View.OnClickListener {
         flocEditText.setText(floc);
         dsnmEditText.setText(dsnm);
         descEditText.setText(desc);
-        stimeViewText.setText(stime);
-        sdateViewText.setText(sdate);
+        ttimeEditText.setText(ttime);
+        add_time.setText(stime);
+        add_date.setText(sdate);
 
         modButton.setOnClickListener(this);
         rmButton.setOnClickListener(this);
@@ -92,10 +96,11 @@ public class UpdateTrip extends Activity implements View.OnClickListener {
                 final String floc = flocEditText.getText().toString();
                 final String dsnm = dsnmEditText.getText().toString();
                 final String desc = descEditText.getText().toString();
-                final String stime = stimeViewText.getText().toString();
-                final String sdate = sdateViewText.getText().toString();
+                final String ttime = ttimeEditText.getText().toString();
+                final String stime = add_time.getText().toString();
+                final String sdate = add_date.getText().toString();
 
-                dbManager.update(_id, sloc, floc, dsnm, desc, stime, sdate);
+                dbManager.update(_id, sloc, floc, dsnm, desc, stime, sdate, ttime);
                 this.returnHome();
                 break;
 

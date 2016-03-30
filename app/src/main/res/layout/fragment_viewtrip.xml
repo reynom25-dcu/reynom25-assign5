@@ -61,7 +61,7 @@
         android:layout_weight="1"
         android:layout_gravity="left"
         android:textColor="#1b258b"
-        android:text="Distance KN: "
+        android:text="Distance NM: "
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
     <TextView
@@ -100,149 +100,38 @@
 
 
 
-
-
-
-
-
-
-    <!--
-
-<LinearLayout
-        android:id="triplay"
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true">
-
-
-
-
-    </LinearLayout>
-
-
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true">
-
-        <TextView
-            android:id="@+id/textView2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="left"
-            android:text="Distance: "
-            android:textAppearance="?android:attr/textAppearanceMedium" />
-
-        <TextView
-            android:id="@+id/dsnm"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="right"
-            android:layout_toRightOf="@+id/textView2"
-            android:text="TextView" />
-
-        <TextView
-            android:id="@+id/sdate"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignBaseline="@+id/textView3"
-            android:layout_alignBottom="@+id/textView3"
-            android:layout_toRightOf="@+id/textView3"
-            android:text="TextView" />
-
-    </LinearLayout>
-
-
-
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/stimeView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/textView2"
-        android:layout_below="@+id/textView2"
-        android:text="Start: "
-        android:textAppearance="?android:attr/textAppearanceMedium" />
+        android:gravity="center_vertical"
+        android:visibility="gone"/>
+
 
     <TextView
-        android:id="@+id/textView4"
+        android:id="@+id/descView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/textView3"
-        android:layout_below="@+id/textView3"
-        android:text="Finish: "
-        android:textAppearance="?android:attr/textAppearanceMedium" />
+        android:gravity="center_vertical"
+        android:visibility="gone"/>
 
     <TextView
-        android:id="@+id/textView5"
+        android:id="@+id/flocView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/textView4"
-        android:layout_below="@+id/textView4"
-        android:text="Description: "
-        android:textAppearance="?android:attr/textAppearanceMedium" />
-
-
-
-
+        android:gravity="center_vertical"
+        android:visibility="gone"/>
 
     <TextView
-        android:id="@+id/sloc"
+        android:id="@+id/ttimeView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/textView3"
-        android:layout_toRightOf="@+id/textView3"
-        android:text="TextView" />
+        android:gravity="center_vertical"
+        android:visibility="gone"/>
 
 
-    <TextView
-        android:id="@+id/desc"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/textView2"
-        android:layout_alignLeft="@+id/textView5"
-        android:text="TextView" />
-
-    <TextView
-        android:id="@+id/id"
-        android:layout_width="25dp"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginRight="6dp"
-        android:padding="3dp"
-        android:visibility="visible" />
-
-        <TextView
-        android:id="@+id/sloc"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:layout_toRightOf="@id/id"
-        android:textColor="#FF0000"
-        android:maxLines="1"
-        android:padding="3dp"
-        android:textSize="17sp"
-        android:textStyle="bold" />
-
-        <TextView
-        android:id="@+id/dsnm"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/sloc"
-        android:layout_marginLeft="10dp"
-        android:layout_toRightOf="@id/id"
-        android:ellipsize="end"
-        android:maxLines="2"
-        android:padding="3dp"
-        android:visibility="visible"
-        android:textStyle="bold"/>
 
 
-        -->
 
 
 </RelativeLayout>

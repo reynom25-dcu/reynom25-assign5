@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.support.v4.widget.SimpleCursorAdapter;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -22,10 +23,10 @@ public class ListTrips extends AppCompatActivity {
     private DBManager dbManager;
     private ListView listView;
     private SimpleCursorAdapter adapter;
+    final String[] columns = new String[] { DatabaseHelper._ID, DatabaseHelper.SLOC, DatabaseHelper.DSNM,
+            DatabaseHelper.SDATE, DatabaseHelper.STIME, DatabaseHelper.DESC, DatabaseHelper.FLOC, DatabaseHelper.TTIME};
 
-    final String[] columns = new String[] { DatabaseHelper._ID, DatabaseHelper.SLOC, DatabaseHelper.DSNM, DatabaseHelper.SDATE };
-
-    final int[] to = new int[] { R.id.id, R.id.sloc, R.id.dsnm ,R.id.sdate };
+    final int[] to = new int[] { R.id.id, R.id.sloc, R.id.dsnm ,R.id.sdate, R.id.stimeView, R.id.descView, R.id.flocView, R.id.ttimeView };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,18 +36,19 @@ public class ListTrips extends AppCompatActivity {
 
         dbManager = new DBManager(this);
         dbManager.open();
-        Cursor cursor = dbManager.fetch();
-        //Cursor cursor = dbManager.query(DatabaseHelper.TABLE_NAME, columns , to, null, null, null, "id asc",null);
+        Cursor cursor = dbManager.fetch1();
 
         listView = (ListView) findViewById(R.id.list_view);
         listView.setEmptyView(findViewById(R.id.empty));
 
         adapter = new SimpleCursorAdapter(this, R.layout.fragment_viewtrip, cursor, columns, to, 0);
         adapter.notifyDataSetChanged();
+        Log.i("Listtrip", "STIMEad = " + DatabaseHelper.STIME);
 
         listView.setAdapter(adapter);
 
-        // OnCLickListiner For List Items
+
+        // OnCLickListener For List Items
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long viewId) {
@@ -54,22 +56,39 @@ public class ListTrips extends AppCompatActivity {
                 TextView slocTextView = (TextView) view.findViewById(R.id.sloc);
                 TextView dsnmTextView = (TextView) view.findViewById(R.id.dsnm);
                 TextView sdateTextView = (TextView) view.findViewById(R.id.sdate);
+                TextView stimeTextView = (TextView) view.findViewById(R.id.stimeView);
+                TextView descTextView = (TextView) view.findViewById(R.id.descView);
+                TextView flocTextView = (TextView) view.findViewById(R.id.flocView);
+                TextView ttimeTextView = (TextView) view.findViewById(R.id.ttimeView);
+
 
                 String id = idTextView.getText().toString();
                 String sloc = slocTextView.getText().toString();
                 String dsnm = dsnmTextView.getText().toString();
                 String sdate = sdateTextView.getText().toString();
+                String stime = stimeTextView.getText().toString();
+                String desc = descTextView.getText().toString();
+                String floc = flocTextView.getText().toString();
+                String ttime = ttimeTextView.getText().toString();
+                Log.i("Listtrip", "SDate = " + sdate);
+                Log.i("Listtrip", "STIME = " + R.id.stimeView);
 
                 Intent modify_intent = new Intent(getApplicationContext(), UpdateTrip.class);
                 modify_intent.putExtra("sloc", sloc);
                 modify_intent.putExtra("dsnm", dsnm);
                 modify_intent.putExtra("sdate", sdate);
                 modify_intent.putExtra("id", id);
+                modify_intent.putExtra("stime", stime);
+                modify_intent.putExtra("desc", desc);
+                modify_intent.putExtra("floc", floc);
+                modify_intent.putExtra("ttime", ttime);
 
                 startActivity(modify_intent);
             }
         });
     }
+
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -85,6 +104,12 @@ public class ListTrips extends AppCompatActivity {
 
             Intent add_trip = new Intent(this, AddTrip.class);
             startActivity(add_trip);
+
+        }
+        if (id == R.id.summary) {
+
+            Intent Summary = new Intent(this, Summary.class);
+            startActivity(Summary);
 
         }
         return super.onOptionsItemSelected(item);

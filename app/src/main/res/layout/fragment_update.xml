@@ -26,40 +26,15 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal">
 
-        <TextView
-            android:id="@+id/sdateadd_viewtext"
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="wrap_content"
-            android:text="Date"
-            android:layout_gravity="left"
-            android:background="#bab8b5" />
 
         <Button
             android:id="@+id/add_date"
             android:layout_weight="1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="right"
+            android:layout_gravity="left"
             android:onClick="showDatePickerDialog"
             android:text="Trip Date" />
-
-    </LinearLayout>
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal">
-
-        <TextView
-            android:id="@+id/stimeadd_viewtext"
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="wrap_content"
-            android:text="Time"
-            android:layout_gravity="left"
-            android:onClick="setTime"
-            android:background="#bab8b5"/>
 
         <Button
             android:id="@+id/add_time"
@@ -71,6 +46,7 @@
             android:text="Start Time" />
 
     </LinearLayout>
+
 
     <LinearLayout
         android:orientation="horizontal"
@@ -84,8 +60,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="left"
+            android:inputType="time"
             android:ems="30"
-            android:hint="Total Time HRS" >
+            android:hint="Total Time HRS:MINS" >
 
         </EditText>
 
@@ -95,6 +72,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="right"
+            android:inputType="number"
             android:ems="30"
             android:hint="Distance NM" >
 
@@ -126,13 +104,15 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Update" />
+            android:text="Update"
+            android:background="@drawable/custom_button_green"/>
 
         <Button
             android:id="@+id/rm_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:background="@drawable/custom_button"
             android:text="Delete" />
     </LinearLayout>
 
