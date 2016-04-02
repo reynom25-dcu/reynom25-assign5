@@ -8,7 +8,6 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.support.v4.widget.SimpleCursorAdapter;
-import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.Menu;
@@ -17,6 +16,8 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
+
+import com.example.marcusreynolds.sailtales.RSSReader.SimpleRSSReaderActivity;
 
 public class ListTrips extends AppCompatActivity {
 
@@ -110,6 +111,13 @@ public class ListTrips extends AppCompatActivity {
 
             Intent Summary = new Intent(this, Summary.class);
             startActivity(Summary);
+
+        }
+
+        if (id == R.id.news) {
+
+            Intent news = new Intent(this, SimpleRSSReaderActivity.class);
+            startActivity(news);
 
         }
         return super.onOptionsItemSelected(item);

@@ -29,7 +29,11 @@
 
         <activity android:theme="@android:style/Theme.DeviceDefault.Light.Dialog"
             android:name=".Summary"
-            android:label="Summary" />
+            android:label="Trip Summary" />
+
+        <activity android:theme="@android:style/Theme.DeviceDefault.Light.Dialog"
+            android:name=".RSSReader.SimpleRSSReaderActivity"
+            android:label="Sailing News" />
     </application>
 
 </manifest>
