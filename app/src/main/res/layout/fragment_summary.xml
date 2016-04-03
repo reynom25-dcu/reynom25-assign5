@@ -15,13 +15,16 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="Total Distance:"
+            android:text="@string/TotalDistance"
+            android:layout_weight="1"
             android:textAppearance="?android:attr/textAppearanceMedium"/>
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:textAppearance="?android:attr/textAppearanceMedium"/>
+            android:layout_weight="1"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="@string/test"/>
 
 
     </LinearLayout>
@@ -46,11 +49,14 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:text="Total Time:"
+            android:layout_weight="1"
             android:textAppearance="?android:attr/textAppearanceMedium"/>
 
         <TextView
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="@string/test"/>
 
 
 </LinearLayout>

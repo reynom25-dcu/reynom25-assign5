@@ -16,6 +16,8 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.support.design.widget.FloatingActionButton;
+
 
 import com.example.marcusreynolds.sailtales.RSSReader.SimpleRSSReaderActivity;
 
@@ -29,11 +31,27 @@ public class ListTrips extends AppCompatActivity {
 
     final int[] to = new int[] { R.id.id, R.id.sloc, R.id.dsnm ,R.id.sdate, R.id.stimeView, R.id.descView, R.id.flocView, R.id.ttimeView };
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.fragment_list);
+
+        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        assert fab != null;
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+                 //       .setAction("Action", null).show();
+                //Intent addt = new Intent(String.valueOf(AddTrip.class));
+                //startActivity(addt);
+                Intent i = new Intent(getApplicationContext(), AddTrip.class);
+                startActivity(i);
+            }
+        });
 
         dbManager = new DBManager(this);
         dbManager.open();
@@ -101,12 +119,14 @@ public class ListTrips extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
 
         int id = item.getItemId();
-        if (id == R.id.add_record) {
 
-            Intent add_trip = new Intent(this, AddTrip.class);
-            startActivity(add_trip);
 
-        }
+        //if (id == R.id.add_record) {
+//
+  //          Intent add_trip = new Intent(this, AddTrip.class);
+  //          startActivity(add_trip);
+
+ //       }
         if (id == R.id.summary) {
 
             Intent Summary = new Intent(this, Summary.class);

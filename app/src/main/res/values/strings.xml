@@ -9,4 +9,17 @@
     <string name="finish_location">Finish Location</string>
     <string name="addrecord">Add Record</string>
     <string name="description">Description of trip</string>
+    <string name="TripDate">Trip Date</string>
+    <string name="StartTime">Start Time</string>
+    <string name="TotalTimeHM">Total Time HRS:MINS</string>
+    <string name="DistanceNM">Distance NM</string>
+    <string name="ClickAnchor">Click on the Anchor to add a new Trip.</string>
+    <string name="news">News</string>
+    <string name="summary">Summary</string>
+    <string name="TotalDistance">Total Distance:</string>
+    <string name="update">Update</string>
+    <string name="delete">Delete</string>
+    <string name="tripnumber">Trip Number:</string>
+    <string name="StartLocation">Start Location:</string>
+    <string name="test">test</string>
 </resources>

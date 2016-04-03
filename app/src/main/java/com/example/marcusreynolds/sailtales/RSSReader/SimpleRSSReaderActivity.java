@@ -27,8 +27,8 @@ import java.util.List;
  */
 public class SimpleRSSReaderActivity extends ListActivity {
 
-    List headlines;
-    List links;
+    private List headlines;
+    private List links;
 
 
     @Override

@@ -45,6 +45,12 @@ public class DBManager {
         database.insert(DatabaseHelper.TABLE_NAME, null, contentValue);
     }
 
+    public Cursor totaldistance(){
+        Cursor cursor = database.rawQuery("SELECT Sum(" + DatabaseHelper.DSNM +  ") AS myTotal FROM " + DatabaseHelper.TABLE_NAME, null);
+        Cursor cursor1 = totaldistance();
+        return cursor1;
+    }
+
     public Cursor fetch1() {
 
         String[] columns = new String[] { DatabaseHelper._ID, DatabaseHelper.SLOC, DatabaseHelper.FLOC, DatabaseHelper.DSNM, DatabaseHelper.SDATE, DatabaseHelper.STIME, DatabaseHelper.DESC, DatabaseHelper.TTIME };
@@ -71,5 +77,7 @@ public class DBManager {
     public void delete(long _id) {
         database.delete(DatabaseHelper.TABLE_NAME, DatabaseHelper._ID + "=" + _id, null);
     }
+
+
 
 }

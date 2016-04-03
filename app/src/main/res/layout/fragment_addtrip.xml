@@ -1,9 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--Scrollview to handle horizontal orientation-->
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content" >
+
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="5dp" >
+
+
 
     <EditText
         android:id="@+id/slocadd_edittext"
@@ -34,18 +41,18 @@
             android:layout_weight="1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="left"
+            android:layout_gravity="start"
             android:onClick="showDatePickerDialog"
-            android:text="Trip Date" />
+            android:text="@string/TripDate" />
 
         <Button
             android:id="@+id/add_time"
             android:layout_weight="1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="right"
+            android:layout_gravity="end"
             android:onClick="showTimePickerDialog"
-            android:text="Start Time" />
+            android:text="@string/StartTime" />
 
     </LinearLayout>
 
@@ -61,10 +68,10 @@
             android:layout_weight="1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="left"
+            android:layout_gravity="start"
             android:inputType="time"
             android:ems="30"
-            android:hint="Total Time HRS:MINS" >
+            android:hint="@string/TotalTimeHM" >
 
         </EditText>
 
@@ -73,10 +80,10 @@
             android:layout_weight="1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="right"
+            android:layout_gravity="end"
             android:inputType="number"
             android:ems="30"
-            android:hint="Distance NM" >
+            android:hint="@string/DistanceNM" >
 
         </EditText>
 
@@ -101,5 +108,9 @@
         android:text="@string/add_trip"
         android:background="@drawable/custom_button_green"
         />
+
+
 </LinearLayout>
+
+</ScrollView>
 

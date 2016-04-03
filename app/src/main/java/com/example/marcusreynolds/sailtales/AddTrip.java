@@ -11,7 +11,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
+
 
 public class AddTrip extends Activity implements View.OnClickListener {
 
@@ -34,6 +34,7 @@ public class AddTrip extends Activity implements View.OnClickListener {
 
         setContentView(R.layout.fragment_addtrip);
 
+        //Declare layout elements
         slocEditText = (EditText) findViewById(R.id.slocadd_edittext);
         flocEditText = (EditText) findViewById(R.id.flocadd_edittext);
         dsnmEditText = (EditText) findViewById(R.id.dsnmadd_edittext);

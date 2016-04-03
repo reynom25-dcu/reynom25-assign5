@@ -6,15 +6,13 @@
 
     <!-- Displays Summary in listview-->
 
-
     <TextView
         android:id="@+id/tripView1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:layout_gravity="left"
+        android:layout_gravity="start"
         android:gravity="center_vertical"
-        android:text="Trip Number: "
+        android:text="@string/tripnumber"
         android:textColor="#1b258b"
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
@@ -22,7 +20,7 @@
         android:id="@+id/id"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="right"
+        android:layout_gravity="end"
         android:layout_toRightOf="@id/tripView1"
         android:textColor="#000000"
         android:text="TextView"
@@ -32,7 +30,7 @@
         android:id="@+id/dateView1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="right"
+        android:layout_gravity="end"
         android:layout_below="@id/tripView1"
         android:layout_marginTop="4dp"
         android:textColor="#1b258b"
@@ -58,10 +56,9 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/dateView1"
         android:layout_marginTop="4dp"
-        android:layout_weight="1"
-        android:layout_gravity="left"
+        android:layout_gravity="start"
         android:textColor="#1b258b"
-        android:text="Distance NM: "
+        android:text="@string/DistanceNM"
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
     <TextView
@@ -70,7 +67,7 @@
         android:layout_height="wrap_content"
         android:gravity="center_vertical"
         android:layout_marginTop="4dp"
-        android:layout_gravity="right"
+        android:layout_gravity="end"
         android:textColor="#000000"
         android:layout_below="@id/dateView1"
         android:layout_toRightOf="@id/dsnmView1"
@@ -80,11 +77,10 @@
         android:id="@+id/slocView1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
         android:layout_below="@id/dsnmView1"
-        android:layout_gravity="left"
+        android:layout_gravity="start"
         android:textColor="#1b258b"
-        android:text="Start Location: "
+        android:text="@string/StartLocation"
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
     <TextView
@@ -92,7 +88,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="center_vertical"
-        android:layout_gravity="right"
+        android:layout_gravity="end"
         android:textColor="#000000"
         android:layout_below="@id/dsnmView1"
         android:layout_toRightOf="@id/slocView1"
