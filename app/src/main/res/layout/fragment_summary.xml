@@ -15,7 +15,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="@string/TotalDistance"
+            android:text="Nautical Miles: "
             android:layout_weight="1"
             android:textAppearance="?android:attr/textAppearanceMedium"/>
 
@@ -24,7 +24,8 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="@string/test"/>
+            android:text="@string/test"
+            android:id="@+id/tnmView" />
 
 
     </LinearLayout>

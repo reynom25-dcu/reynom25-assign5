@@ -80,7 +80,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="end"
-            android:inputType="number"
+            android:inputType="numberDecimal"
             android:ems="30"
             android:hint="@string/DistanceNM" >
 

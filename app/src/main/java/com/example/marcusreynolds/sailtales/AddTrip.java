@@ -1,7 +1,11 @@
 package com.example.marcusreynolds.sailtales;
 
 /**
- * Created by Marcus Reynolds
+ * Created by marcusreynolds on 06/03/16.
+ *
+ * @author Marcus Reynolds <marcus.reynolds25@mail.dcu.ie>
+ * @version 1.0, 2016
+ * @since 5/04/2016
  */
 import android.app.Activity;
 import android.app.DialogFragment;
@@ -9,6 +13,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
 import android.widget.EditText;
 

@@ -115,4 +115,9 @@ public class SimpleRSSReaderActivity extends ListActivity {
         startActivity(intent);
     }
 
+    @Override
+    public void onBackPressed() {
+        this.getParent().onBackPressed();
+    }
+
 }

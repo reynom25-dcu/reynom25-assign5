@@ -1,7 +1,11 @@
 package com.example.marcusreynolds.sailtales;
 
 /**
- * Created by Marcus Reynolds 27/02/2016
+ *
+ *
+ * @author Marcus Reynolds <marcus.reynolds25@mail.dcu.ie>
+ * @version 1.0, 2016
+ * @since 5/04/2016
  */
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
@@ -36,7 +40,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String CREATE_TABLE = "create table " + TABLE_NAME +
             "( " + _ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
             + SLOC + " TEXT NOT NULL, "
-            + DSNM + " TEXT, "
+            + DSNM + " REAL, "
             + DESC + " TEXT, "
             + FLOC + " TEXT, "
             + BOAT + " TEXT, "

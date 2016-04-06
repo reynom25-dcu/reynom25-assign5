@@ -12,7 +12,7 @@
     <string name="TripDate">Trip Date</string>
     <string name="StartTime">Start Time</string>
     <string name="TotalTimeHM">Total Time HRS:MINS</string>
-    <string name="DistanceNM">Distance NM</string>
+    <string name="DistanceNM">Distance NM: </string>
     <string name="ClickAnchor">Click on the Anchor to add a new Trip.</string>
     <string name="news">News</string>
     <string name="summary">Summary</string>

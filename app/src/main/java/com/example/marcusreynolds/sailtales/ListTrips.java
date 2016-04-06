@@ -2,6 +2,10 @@ package com.example.marcusreynolds.sailtales;
 
 /**
  * Created by marcusreynolds on 06/03/16.
+ *
+ * @author Marcus Reynolds <marcus.reynolds25@mail.dcu.ie>
+ * @version 1.0, 2016
+ * @since 5/04/2016
  */
 
 import android.content.Intent;
@@ -17,8 +21,6 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.support.design.widget.FloatingActionButton;
-
-
 import com.example.marcusreynolds.sailtales.RSSReader.SimpleRSSReaderActivity;
 
 public class ListTrips extends AppCompatActivity {
@@ -26,9 +28,10 @@ public class ListTrips extends AppCompatActivity {
     private DBManager dbManager;
     private ListView listView;
     private SimpleCursorAdapter adapter;
+    //DB Columns that are use din the listview
     final String[] columns = new String[] { DatabaseHelper._ID, DatabaseHelper.SLOC, DatabaseHelper.DSNM,
             DatabaseHelper.SDATE, DatabaseHelper.STIME, DatabaseHelper.DESC, DatabaseHelper.FLOC, DatabaseHelper.TTIME};
-
+    //Array of layout objects to assign to database fields
     final int[] to = new int[] { R.id.id, R.id.sloc, R.id.dsnm ,R.id.sdate, R.id.stimeView, R.id.descView, R.id.flocView, R.id.ttimeView };
 
 
@@ -44,10 +47,6 @@ public class ListTrips extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                 //       .setAction("Action", null).show();
-                //Intent addt = new Intent(String.valueOf(AddTrip.class));
-                //startActivity(addt);
                 Intent i = new Intent(getApplicationContext(), AddTrip.class);
                 startActivity(i);
             }
@@ -65,7 +64,6 @@ public class ListTrips extends AppCompatActivity {
         Log.i("Listtrip", "STIMEad = " + DatabaseHelper.STIME);
 
         listView.setAdapter(adapter);
-
 
         // OnCLickListener For List Items
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -108,7 +106,6 @@ public class ListTrips extends AppCompatActivity {
     }
 
 
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_main, menu);
@@ -120,13 +117,6 @@ public class ListTrips extends AppCompatActivity {
 
         int id = item.getItemId();
 
-
-        //if (id == R.id.add_record) {
-//
-  //          Intent add_trip = new Intent(this, AddTrip.class);
-  //          startActivity(add_trip);
-
- //       }
         if (id == R.id.summary) {
 
             Intent Summary = new Intent(this, Summary.class);

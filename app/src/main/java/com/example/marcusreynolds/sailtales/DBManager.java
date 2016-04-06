@@ -1,8 +1,14 @@
 package com.example.marcusreynolds.sailtales;
 
 /**
- * Created by Marcus Reynolds 27/02/2016
+ *
+ *
+ * @author Marcus Reynolds <marcus.reynolds25@mail.dcu.ie>
+ * @version 1.0, 2016
+ * @since 5/04/2016
  */
+
+
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
@@ -51,6 +57,12 @@ public class DBManager {
         return cursor1;
     }
 
+    public Cursor Distance() {
+        Cursor Distance = database.rawQuery("SELECT Sum(" + DatabaseHelper.DSNM + ") AS myTotal FROM " + DatabaseHelper.TABLE_NAME, null);
+        return Distance;
+    }
+
+
     public Cursor fetch1() {
 
         String[] columns = new String[] { DatabaseHelper._ID, DatabaseHelper.SLOC, DatabaseHelper.FLOC, DatabaseHelper.DSNM, DatabaseHelper.SDATE, DatabaseHelper.STIME, DatabaseHelper.DESC, DatabaseHelper.TTIME };
@@ -60,7 +72,7 @@ public class DBManager {
         }
         return cursor;
     }
-    //Updating DB record
+    //Updating DB record content
     public int update(long _id, String sloc, String floc, String dsnm, String desc, String stime, String sdate, String ttime) {
         ContentValues contentValues = new ContentValues();
         contentValues.put(DatabaseHelper.SLOC, sloc);
