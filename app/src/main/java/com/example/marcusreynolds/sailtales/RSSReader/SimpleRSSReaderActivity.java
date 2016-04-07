@@ -1,5 +1,13 @@
 package com.example.marcusreynolds.sailtales.RSSReader;
 
+/**
+ * Created by marcusreynolds on 06/03/16.
+ *
+ * @author Marcus Reynolds <marcus.reynolds25@mail.dcu.ie>
+ * @version 1.0, 2016
+ * @since 5/04/2016
+ */
+
 import android.app.ListActivity;
 import android.content.Intent;
 import android.net.Uri;
@@ -115,9 +123,5 @@ public class SimpleRSSReaderActivity extends ListActivity {
         startActivity(intent);
     }
 
-    @Override
-    public void onBackPressed() {
-        this.getParent().onBackPressed();
-    }
 
 }

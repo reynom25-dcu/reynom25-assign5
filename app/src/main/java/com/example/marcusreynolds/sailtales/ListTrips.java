@@ -42,6 +42,8 @@ public class ListTrips extends AppCompatActivity {
 
         setContentView(R.layout.fragment_list);
 
+        //Code for floating AddTrip Butotn
+
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         assert fab != null;
         fab.setOnClickListener(new View.OnClickListener() {

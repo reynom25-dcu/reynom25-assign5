@@ -10,6 +10,15 @@ import android.util.Log;
 import android.widget.Button;
 import android.widget.TimePicker;
 
+
+/**
+ * Created by marcusreynolds on 06/03/16.
+ *
+ * @author Marcus Reynolds <marcus.reynolds25@mail.dcu.ie>
+ * @version 1.0, 2016
+ * @since 5/04/2016
+ */
+
 public class TimePickerFragment extends DialogFragment implements TimePickerDialog.OnTimeSetListener{
 
     @Override

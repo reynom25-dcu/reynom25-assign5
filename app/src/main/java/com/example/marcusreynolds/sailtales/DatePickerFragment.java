@@ -1,8 +1,14 @@
 package com.example.marcusreynolds.sailtales;
 
 /**
- * Created by marcusreynolds on 23/03/16.
- */import java.util.Calendar;
+ * Created by marcusreynolds on 06/03/16.
+ *
+ * @author Marcus Reynolds <marcus.reynolds25@mail.dcu.ie>
+ * @version 1.0, 2016
+ * @since 5/04/2016
+ */
+
+import java.util.Calendar;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.app.DialogFragment;
@@ -11,6 +17,9 @@ import android.util.Log;
 import android.widget.Button;
 import android.widget.DatePicker;
 
+/**
+ * The type Date picker fragment.
+ */
 public class DatePickerFragment extends DialogFragment implements DatePickerDialog.OnDateSetListener{
 
 
@@ -22,12 +31,12 @@ public class DatePickerFragment extends DialogFragment implements DatePickerDial
         int month = c.get(Calendar.MONTH);
         int day = c.get(Calendar.DAY_OF_MONTH);
 
-// Create a new instance of DatePickerDialog and return it
+        // Create a new instance of DatePickerDialog and return it
         return new DatePickerDialog(getActivity(), this, year, month, day);
     }
 
     public void onDateSet(DatePicker view, int year, int month, int day) {
-// Do something with the date chosen by the user
+        // Add month +1 to compensate for stating at month 0
         int month1 = month+1;
 
         Log.w("DatePicker", "Date = " + year);
