@@ -39,36 +39,6 @@
         app:seriesType="line"
         app:seriesColor="#1c35b3" />
 
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:textAppearance="?android:attr/textAppearanceMedium">
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="Total Time:"
-            android:layout_weight="1"
-            android:textAppearance="?android:attr/textAppearanceMedium"/>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:text="@string/test"/>
-
-
-</LinearLayout>
-
-    <com.jjoe64.graphview.helper.GraphViewXML
-        android:title="Time"
-        app:seriesTitle="Time"
-        android:layout_width="match_parent"
-        android:layout_height="200dip"
-        app:seriesData="0=4;2=5;3=1;4=2"
-        app:seriesType="line"
-        app:seriesColor="#ee0000" />
 
 </LinearLayout>

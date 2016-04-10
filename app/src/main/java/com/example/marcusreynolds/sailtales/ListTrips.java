@@ -132,6 +132,14 @@ public class ListTrips extends AppCompatActivity {
             startActivity(news);
 
         }
+
+        if (id == R.id.compass) {
+
+            Intent compass = new Intent(this, compass.class);
+            startActivity(compass);
+
+        }
+
         return super.onOptionsItemSelected(item);
     }}
 

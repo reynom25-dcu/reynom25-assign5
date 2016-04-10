@@ -34,6 +34,10 @@
         <activity android:theme="@android:style/Theme.DeviceDefault.Light.Dialog"
             android:name=".RSSReader.SimpleRSSReaderActivity"
             android:label="Sailing News" />
+
+        <activity android:theme="@android:style/Theme.DeviceDefault.Light.Dialog"
+            android:name=".compass"
+            android:label="Sail Tales Compass" />
     </application>
 
 </manifest>

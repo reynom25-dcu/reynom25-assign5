@@ -14,7 +14,12 @@
 
     -->
 
-
+    <item
+        android:id="@+id/compass"
+        android:icon="@android:drawable/ic_menu_compass"
+        android:orderInCategory="70"
+        android:title="Compass"
+        app:showAsAction="always"/>
 
     <item
         android:id="@+id/news"
