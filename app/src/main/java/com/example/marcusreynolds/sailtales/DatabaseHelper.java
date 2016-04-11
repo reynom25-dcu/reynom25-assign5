@@ -31,7 +31,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public static final String TTIME = "triptime";
 
     // Database Name defined
-    static final String DB_NAME = "SAIL_TALES11.DB";
+    static final String DB_NAME = "SAIL_TALES15.DB";
 
     // database version defined
     static final int DB_VERSION = 1;

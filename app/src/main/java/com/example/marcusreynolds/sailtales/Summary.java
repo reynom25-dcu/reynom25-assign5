@@ -2,8 +2,21 @@ package com.example.marcusreynolds.sailtales;
 
 import android.app.Activity;
 import android.database.Cursor;
+import android.graphics.Color;
+import android.graphics.DashPathEffect;
+import android.graphics.Paint;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.TextView;
+
+import com.jjoe64.graphview.GraphView;
+import com.jjoe64.graphview.LegendRenderer;
+import com.jjoe64.graphview.series.DataPoint;
+import com.jjoe64.graphview.series.LineGraphSeries;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 /**
  * Created by marcusreynolds on 06/03/16.
@@ -14,18 +27,31 @@ import android.widget.TextView;
  */
 public class Summary extends Activity {
     private TextView tnmView;
+    private TextView ttView;
+    private TextView avgdsView;
     private DBManager dbManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        setTitle("Total Distance");
+
+        int ttrips = 0;
+        double NMavg = 0;
+        String avgDouble= "";
+
+        setTitle("Statistics");
         setContentView(R.layout.fragment_summary);
         tnmView = (TextView) findViewById(R.id.tnmView);
         dbManager = new DBManager(this);
         dbManager.open();
         Cursor Distance = dbManager.Distance();
+
+        int TN0 = 0;
+        int TN1 = 1;
+        int TN2 = 2;
+        int TN3 = 3;
+        int TN4 = 4;
 
         String result = "";
 
@@ -35,7 +61,88 @@ public class Summary extends Activity {
 
         tnmView.setText(result);
 
+        List<String> distancearray = new ArrayList<String>();
+        Cursor cursor =  dbManager.totaldistance();
+        do{
+            distancearray.add(cursor.getString(1));
+        }while ((cursor.moveToNext()));
+        ttrips = cursor.getCount();
+        Log.i("Graph", "TTRIPS = " + ttrips);
+
+        // Be sure here to have at least the 5 desired elements into the list
+        while(distancearray.size() < 5){
+            distancearray.add("0");
+        }
+
+        String DNM0A = distancearray.get(0);
+        String DNM1A = distancearray.get(1);
+        String DNM2A = distancearray.get(2);
+        String DNM3A = distancearray.get(3);
+        String DNM4A = distancearray.get(4);
+        Log.i("Graph", "Array 0 = " + DNM0A);
+        Log.i("Graph", "Array 1 = " + DNM1A);
+        Log.i("Graph", "Array 2 = " + DNM2A);
+        Log.i("Graph", "Array 3 = " + DNM3A);
+        Log.i("Graph", "Array 4 = " + DNM4A);
+
+        double resultnum = Double.parseDouble(result);
+        NMavg = resultnum / ttrips;
+        avgDouble = Double.toString(NMavg);
+        Log.i("Graph", "avgDouble = " + avgDouble);
+        Log.i("Graph", "ttrips = " + ttrips);
+        Log.i("Graph", "resultnm = " + resultnum);
+        //avgdsView.setText(avgDouble);
+        //tnmView.setText(result);
+
+
+        double DNM0 = Double.parseDouble(DNM0A);
+        double DNM1 = Double.parseDouble(DNM1A);
+        double DNM2 = Double.parseDouble(DNM2A);
+        double DNM3 = Double.parseDouble(DNM3A);
+        double DNM4 = Double.parseDouble(DNM4A);
+        //double DNM0 = DNM0A;
+
+        GraphView graph = (GraphView) findViewById(R.id.graph);
+        LineGraphSeries<DataPoint> series = new LineGraphSeries<DataPoint>(new DataPoint[] {
+                new DataPoint(TN0, DNM0),
+                new DataPoint(TN1, DNM1),
+                new DataPoint(TN2, DNM2),
+                new DataPoint(TN3, DNM3),
+                new DataPoint(TN4, DNM4)
+        });
+        graph.addSeries(series);
+
+        LineGraphSeries<DataPoint> series2 = new LineGraphSeries<DataPoint>(new DataPoint[] {
+                new DataPoint(TN0, NMavg),
+                new DataPoint(TN1, NMavg),
+                new DataPoint(TN2, NMavg),
+                new DataPoint(TN3, NMavg),
+                new DataPoint(TN4, NMavg)
+        });
+        series.setColor(Color.BLUE);
+        series2.setColor(Color.RED);
+        graph.addSeries(series2);
+
+        // custom paint to make a dotted line
+        Paint paint = new Paint();
+        paint.setStyle(Paint.Style.STROKE);
+        paint.setStrokeWidth(4);
+        paint.setColor(Color.RED);
+        paint.setPathEffect(new DashPathEffect(new float[]{8, 5}, 0));
+        series2.setCustomPaint(paint);
+
+        series.setTitle("NM");
+        series2.setTitle("AVG NM");
+
+        graph.getLegendRenderer().setVisible(true);
+        graph.getLegendRenderer().setAlign(LegendRenderer.LegendAlign.TOP);
+
+
+
     }
+
+
+
 }
 
 

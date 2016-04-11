@@ -52,9 +52,17 @@ public class DBManager {
     }
 
     public Cursor totaldistance(){
-        Cursor cursor = database.rawQuery("SELECT Sum(" + DatabaseHelper.DSNM +  ") AS myTotal FROM " + DatabaseHelper.TABLE_NAME, null);
-        Cursor cursor1 = totaldistance();
-        return cursor1;
+        String[] columns = new String[] { DatabaseHelper._ID, DatabaseHelper.DSNM, DatabaseHelper.SDATE };
+        Cursor cursor = database.query(DatabaseHelper.TABLE_NAME, columns, null, null, null, null, DatabaseHelper._ID + " DESC limit 5");
+        if (cursor != null) {
+            cursor.moveToFirst();
+        }
+        return cursor;
+    }
+
+    public Cursor totaltrips(){
+        Cursor cursor = database.rawQuery("SELECT * AS TTotal FROM " + DatabaseHelper.TABLE_NAME, null);
+        return cursor;
     }
 
     public Cursor Distance() {

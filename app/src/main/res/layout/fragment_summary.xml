@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
+
+<!--Scrollview to handle horizontal orientation-->
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content" >
+
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
@@ -30,15 +35,60 @@
 
     </LinearLayout>
 
-    <com.jjoe64.graphview.helper.GraphViewXML
-        android:title="Distance"
-        app:seriesTitle="Distance"
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Total Trips: "
+            android:layout_weight="1"
+            android:textAppearance="?android:attr/textAppearanceMedium"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="@string/test"
+            android:id="@+id/ttView" />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Average Distance NM: "
+            android:layout_weight="1"
+            android:textAppearance="?android:attr/textAppearanceMedium"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="@string/test"
+            android:id="@+id/avgdsView" />
+
+
+    </LinearLayout>
+
+    <com.jjoe64.graphview.GraphView
         android:layout_width="match_parent"
         android:layout_height="200dip"
-        app:seriesData="0=5;2=5;3=0;4=2"
-        app:seriesType="line"
-        app:seriesColor="#1c35b3" />
+        android:id="@+id/graph" />
 
 
 
 </LinearLayout>
+    </ScrollView>
