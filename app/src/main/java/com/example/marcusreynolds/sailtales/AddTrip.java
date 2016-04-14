@@ -13,14 +13,12 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
 import android.widget.EditText;
 
 
 public class AddTrip extends Activity implements View.OnClickListener {
 
-    private Button addButton;
     private Button add_time;
     private Button add_date;
     private EditText slocEditText;
@@ -48,7 +46,7 @@ public class AddTrip extends Activity implements View.OnClickListener {
         add_time = (Button) findViewById(R.id.add_time);
         add_date = (Button) findViewById(R.id.add_date);
 
-        addButton = (Button) findViewById(R.id.add_trip);
+        Button addButton = (Button) findViewById(R.id.add_trip);
 
         dbManager = new DBManager(this);
         dbManager.open();

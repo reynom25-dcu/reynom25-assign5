@@ -11,7 +11,7 @@
         android:layout_marginBottom="40dp"
         android:layout_marginTop="20dp"
         android:textSize="25dp"
-        android:text="Heading: 0.0" />
+        android:text="@string/Heading" />
 
     <ImageView
         android:id="@+id/imageViewCompass"

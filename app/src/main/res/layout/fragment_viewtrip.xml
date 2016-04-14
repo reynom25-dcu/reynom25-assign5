@@ -34,7 +34,7 @@
         android:layout_below="@id/tripView1"
         android:layout_marginTop="4dp"
         android:textColor="#1b258b"
-        android:text="Date: "
+        android:text="@string/Date1"
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
     <TextView

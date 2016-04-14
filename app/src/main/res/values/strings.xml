@@ -22,4 +22,9 @@
     <string name="tripnumber">Trip Number:</string>
     <string name="StartLocation">Start Location:</string>
     <string name="test">test</string>
+    <string name="Heading">Heading: 0.0</string>
+    <string name="Compass">Compass</string>
+    <string name="NautMiles">Nautical Miles:</string>
+    <string name="Date1">Date:</string>
+    <string name="avgDistance">Average Distance NM:</string>
 </resources>

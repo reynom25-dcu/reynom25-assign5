@@ -8,14 +8,11 @@ import android.graphics.Paint;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.TextView;
-
 import com.jjoe64.graphview.GraphView;
 import com.jjoe64.graphview.LegendRenderer;
 import com.jjoe64.graphview.series.DataPoint;
 import com.jjoe64.graphview.series.LineGraphSeries;
-
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -26,7 +23,6 @@ import java.util.List;
  * @since 5/04/2016
  */
 public class Summary extends Activity {
-    private TextView tnmView;
     private TextView ttView;
     private TextView avgdsView;
     private DBManager dbManager;
@@ -35,14 +31,13 @@ public class Summary extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-
         int ttrips = 0;
         double NMavg = 0;
         String avgDouble= "";
 
         setTitle("Statistics");
         setContentView(R.layout.fragment_summary);
-        tnmView = (TextView) findViewById(R.id.tnmView);
+        TextView tnmView = (TextView) findViewById(R.id.tnmView);
         dbManager = new DBManager(this);
         dbManager.open();
         Cursor Distance = dbManager.Distance();
@@ -79,6 +74,7 @@ public class Summary extends Activity {
         String DNM2A = distancearray.get(2);
         String DNM3A = distancearray.get(3);
         String DNM4A = distancearray.get(4);
+        //Test stored array values
         Log.i("Graph", "Array 0 = " + DNM0A);
         Log.i("Graph", "Array 1 = " + DNM1A);
         Log.i("Graph", "Array 2 = " + DNM2A);
@@ -102,6 +98,7 @@ public class Summary extends Activity {
         double DNM4 = Double.parseDouble(DNM4A);
         //double DNM0 = DNM0A;
 
+        //Graphview plots the distance of the 5 most recent trips
         GraphView graph = (GraphView) findViewById(R.id.graph);
         LineGraphSeries<DataPoint> series = new LineGraphSeries<DataPoint>(new DataPoint[] {
                 new DataPoint(TN0, DNM0),
@@ -111,6 +108,7 @@ public class Summary extends Activity {
                 new DataPoint(TN4, DNM4)
         });
         graph.addSeries(series);
+        //Second graph line to show average distance
 
         LineGraphSeries<DataPoint> series2 = new LineGraphSeries<DataPoint>(new DataPoint[] {
                 new DataPoint(TN0, NMavg),
