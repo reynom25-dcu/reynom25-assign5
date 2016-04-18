@@ -17,6 +17,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="30"
+        android:nextFocusDown="@+id/flocadd_edittext"
         android:hint="@string/start_location" >
         <requestFocus />
     </EditText>

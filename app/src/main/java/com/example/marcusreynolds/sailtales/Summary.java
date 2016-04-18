@@ -8,10 +8,14 @@ import android.graphics.Paint;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.TextView;
+
+import com.jjoe64.graphview.DefaultLabelFormatter;
 import com.jjoe64.graphview.GraphView;
 import com.jjoe64.graphview.LegendRenderer;
 import com.jjoe64.graphview.series.DataPoint;
 import com.jjoe64.graphview.series.LineGraphSeries;
+
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -33,11 +37,13 @@ public class Summary extends Activity {
 
         int ttrips = 0;
         double NMavg = 0;
-        String avgDouble= "";
+        int count = 0;
 
         setTitle("Statistics");
         setContentView(R.layout.fragment_summary);
         TextView tnmView = (TextView) findViewById(R.id.tnmView);
+        TextView ttView = (TextView) findViewById(R.id.ttView);
+        TextView avgView = (TextView) findViewById(R.id.avgdsView);
         dbManager = new DBManager(this);
         dbManager.open();
         Cursor Distance = dbManager.Distance();
@@ -49,25 +55,38 @@ public class Summary extends Activity {
         int TN4 = 4;
 
         String result = "";
+        String ttrips1 = "";
+        String avgDouble1= "";
 
         // get column value
         if (Distance.moveToNext())
             result = String.valueOf(Distance.getDouble(Distance.getColumnIndex("myTotal")));
 
         tnmView.setText(result);
+        Cursor cursor1 =  dbManager.totaldistance();
+        count = cursor1.getCount();
+        Log.i("Graph", "Trip Count = " + count);
 
         List<String> distancearray = new ArrayList<String>();
         Cursor cursor =  dbManager.totaldistance();
-        do{
-            distancearray.add(cursor.getString(1));
-        }while ((cursor.moveToNext()));
-        ttrips = cursor.getCount();
-        Log.i("Graph", "TTRIPS = " + ttrips);
+
+        int numResults = cursor.getCount();
+        if (numResults > 0){
+            do{
+                distancearray.add(cursor.getString(1));
+            }while ((cursor.moveToNext()));
+            ttrips = cursor.getCount();
+            Log.i("Graph", "TTRIPS = " + ttrips);
+
+        }
+
 
         // Be sure here to have at least the 5 desired elements into the list
         while(distancearray.size() < 5){
             distancearray.add("0");
         }
+
+
 
         String DNM0A = distancearray.get(0);
         String DNM1A = distancearray.get(1);
@@ -83,8 +102,8 @@ public class Summary extends Activity {
 
         double resultnum = Double.parseDouble(result);
         NMavg = resultnum / ttrips;
-        avgDouble = Double.toString(NMavg);
-        Log.i("Graph", "avgDouble = " + avgDouble);
+        //avgDouble = Double.toString(NMavg);
+        //Log.i("Graph", "avgDouble = " + avgDouble);
         Log.i("Graph", "ttrips = " + ttrips);
         Log.i("Graph", "resultnm = " + resultnum);
         //avgdsView.setText(avgDouble);
@@ -134,6 +153,31 @@ public class Summary extends Activity {
 
         graph.getLegendRenderer().setVisible(true);
         graph.getLegendRenderer().setAlign(LegendRenderer.LegendAlign.TOP);
+
+        // custom label formatter to show currency "EUR"
+        graph.getGridLabelRenderer().setLabelFormatter(new DefaultLabelFormatter() {
+            @Override
+            public String formatLabel(double value, boolean isValueX) {
+                if (isValueX) {
+                    // show normal x values
+                    return super.formatLabel(value, isValueX);
+                } else {
+                    // show currency for y values
+                    return super.formatLabel(value, isValueX) + "NM";
+                }
+            }
+        });
+
+        ttrips1 = String.valueOf(ttrips);
+
+        ttView.setText(ttrips1);
+        DecimalFormat df = new DecimalFormat("#.##");
+        NMavg = Double.valueOf(df.format(NMavg));
+
+        avgDouble1 = String.valueOf(NMavg);
+
+
+        avgView.setText(avgDouble1);
 
 
 

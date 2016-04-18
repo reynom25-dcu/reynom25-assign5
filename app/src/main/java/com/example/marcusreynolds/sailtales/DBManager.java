@@ -81,12 +81,12 @@ public class DBManager {
 
     /**
      * Totaldistance cursor.
-     *
+     *+ " DESC limit 5"
      * @return the cursor
      */
     public Cursor totaldistance(){
         String[] columns = new String[] { DatabaseHelper._ID, DatabaseHelper.DSNM, DatabaseHelper.SDATE };
-        Cursor cursor = database.query(DatabaseHelper.TABLE_NAME, columns, null, null, null, null, DatabaseHelper._ID + " DESC limit 5");
+        Cursor cursor = database.query(DatabaseHelper.TABLE_NAME, columns, null, null, null, null, DatabaseHelper._ID + " DESC");
         if (cursor != null) {
             cursor.moveToFirst();
         }

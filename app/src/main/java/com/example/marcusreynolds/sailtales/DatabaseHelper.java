@@ -76,7 +76,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
      * The constant DB_NAME.
      */
 // Database Name defined
-    static final String DB_NAME = "SAIL_TALES15.DB";
+    static final String DB_NAME = "SAIL_TALES19.DB";
 
     /**
      * The constant DB_VERSION.

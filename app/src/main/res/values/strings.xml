@@ -16,15 +16,15 @@
     <string name="ClickAnchor">Click on the Anchor to add a new Trip.</string>
     <string name="news">News</string>
     <string name="summary">Summary</string>
-    <string name="TotalDistance">Total Distance:</string>
+    <string name="TotalDistance">Total Distance: </string>
     <string name="update">Update</string>
     <string name="delete">Delete</string>
-    <string name="tripnumber">Trip Number:</string>
-    <string name="StartLocation">Start Location:</string>
+    <string name="tripnumber">Trip Number: </string>
+    <string name="StartLocation">Start Location: </string>
     <string name="test">test</string>
     <string name="Heading">Heading: 0.0</string>
     <string name="Compass">Compass</string>
-    <string name="NautMiles">Nautical Miles:</string>
+    <string name="NautMiles">Nautical Miles: </string>
     <string name="Date1">Date:</string>
-    <string name="avgDistance">Average Distance NM:</string>
+    <string name="avgDistance">AVG Distance NM: </string>
 </resources>
