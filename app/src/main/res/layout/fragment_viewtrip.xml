@@ -23,7 +23,7 @@
         android:layout_gravity="end"
         android:layout_toRightOf="@id/tripView1"
         android:textColor="#000000"
-        android:text="TextView"
+        android:text="@string/txtview"
         android:textAppearance="?android:attr/textAppearanceMedium"/>
 
     <TextView

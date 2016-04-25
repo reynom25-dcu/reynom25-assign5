@@ -1,7 +1,11 @@
 package com.example.marcusreynolds.sailtales;
 
 /**
- * Created by marcusreynolds on 09/04/16.
+ *
+ *
+ * @author Marcus Reynolds <marcus.reynolds25@mail.dcu.ie>
+ * @version 1.0, 2016
+ * @since 5/04/2016
  */
 import android.app.Activity;
 import android.hardware.Sensor;
@@ -14,6 +18,9 @@ import android.view.animation.RotateAnimation;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+/**
+ * The type Compass.
+ */
 public class compass extends Activity implements SensorEventListener {
 
     // define the display assembly compass picture
@@ -25,14 +32,18 @@ public class compass extends Activity implements SensorEventListener {
     // device sensor manager
     private SensorManager mSensorManager;
 
+    /**
+     * The Tv heading.
+     */
     TextView tvHeading;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        //Set layout
         setContentView(R.layout.fragment_compass);
 
-        //
+        //Set image for compass
         image = (ImageView) findViewById(R.id.imageViewCompass);
 
         // TextView that will tell the user what degree is he heading

@@ -1,11 +1,14 @@
 package com.example.marcusreynolds.sailtales;
 
 /**
+ *The purpose of this code is manage the SQLite database crud operations and other database queries.
  *
  *
  * @author Marcus Reynolds <marcus.reynolds25@mail.dcu.ie>
  * @version 1.0, 2016
  * @since 5/04/2016
+ *
+ *
  */
 
 
@@ -21,7 +24,6 @@ import android.database.sqlite.SQLiteDatabase;
 public class DBManager {
 
     private DatabaseHelper dbHelper;
-
     private Context context;
 
     private SQLiteDatabase database;
@@ -55,15 +57,15 @@ public class DBManager {
     }
 
     /**
-     * Insert.
+     * Insert new record to the database.
      *
-     * @param sloc  the sloc
-     * @param floc  the floc
-     * @param dsnm  the dsnm
-     * @param desc  the desc
-     * @param stime the stime
-     * @param sdate the sdate
-     * @param ttime the ttime
+     * @param sloc  the start location
+     * @param floc  the finish location
+     * @param dsnm  the distance
+     * @param desc  the description
+     * @param stime the start time
+     * @param sdate the start data
+     * @param ttime the total time
      */
 //Creating DB record
     public void insert(String sloc, String floc, String dsnm, String desc, String stime, String sdate, String ttime) {
@@ -81,7 +83,7 @@ public class DBManager {
 
     /**
      * Totaldistance cursor.
-     *+ " DESC limit 5"
+     *+
      * @return the cursor
      */
     public Cursor totaldistance(){
@@ -115,11 +117,11 @@ public class DBManager {
 
 
     /**
-     * Fetch 1 cursor.
+     * Fetchlist cursor. used to get results and order them for the listview
      *
-     * @return the cursor
+     * @return the cursor will fetch the results in decending order of _ID used to display listview
      */
-    public Cursor fetch1() {
+    public Cursor fetchlist() {
 
         String[] columns = new String[] { DatabaseHelper._ID, DatabaseHelper.SLOC, DatabaseHelper.FLOC, DatabaseHelper.DSNM, DatabaseHelper.SDATE, DatabaseHelper.STIME, DatabaseHelper.DESC, DatabaseHelper.TTIME };
         Cursor cursor = database.query(DatabaseHelper.TABLE_NAME, columns, null, null, null, null, DatabaseHelper._ID+" DESC");
@@ -130,16 +132,16 @@ public class DBManager {
     }
 
     /**
-     * Update int.
+     * Update database record
      *
      * @param _id   the id
-     * @param sloc  the sloc
-     * @param floc  the floc
-     * @param dsnm  the dsnm
-     * @param desc  the desc
-     * @param stime the stime
-     * @param sdate the sdate
-     * @param ttime the ttime
+     * @param sloc  the start location
+     * @param floc  the finish location
+     * @param dsnm  the distance
+     * @param desc  the description
+     * @param stime the start time
+     * @param sdate the start data
+     * @param ttime the total time
      * @return the int
      */
 //Updating DB record content
@@ -157,9 +159,9 @@ public class DBManager {
     }
 
     /**
-     * Delete.
+     * Delete Record based on returned id.
      *
-     * @param _id the id
+     * @param _id the id associated with the record to be deleted
      */
 //Deleting DB record
     public void delete(long _id) {

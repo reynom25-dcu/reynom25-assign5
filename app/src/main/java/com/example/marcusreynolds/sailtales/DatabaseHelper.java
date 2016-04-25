@@ -1,11 +1,15 @@
 package com.example.marcusreynolds.sailtales;
 
 /**
- *
+ *This is code that manages the database schema. It defines the database structure. It also
+ * creates the database on first install.
  *
  * @author Marcus Reynolds <marcus.reynolds25@mail.dcu.ie>
  * @version 1.0, 2016
  * @since 5/04/2016
+ *
+ *
+ *
  */
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
@@ -17,50 +21,50 @@ import android.database.sqlite.SQLiteOpenHelper;
 public class DatabaseHelper extends SQLiteOpenHelper {
 
     /**
-     * The constant TABLE_NAME.
+     * The constant TABLE_NAME. This is the DB table name.
      */
-// Table Name defined
+    // Table Name defined
     public static final String TABLE_NAME = "SAILTALES";
 
     /**
-     * The constant _ID.
+     * The constant _ID. This field is used for the trip ID and primary key. Auto inc.
      */
-// Table columns defined
+    // Table columns defined
     public static final String _ID = "_id";
     /**
-     * The constant SLOC.
+     * The constant SLOC. This field is used to store the start location
      */
     public static final String SLOC = "startlocation";
     /**
-     * The constant FLOC.
+     * The constant FLOC. This field is used to store the finish location
      */
     public static final String FLOC = "finishlocation";
     /**
-     * The constant BOAT.
+     * The constant BOAT. This field is used to store the boat name in version 2
      */
     public static final String BOAT = "boat";
     /**
-     * The constant WT.
+     * The constant WT. This field is used to store the weather conditions in version 2
      */
     public static final String WT = "weather";
     /**
-     * The constant DSNM.
+     * The constant DSNM. This field is used to store the distance of the trip in NM.
      */
     public static final String DSNM = "distance";
     /**
-     * The constant DESC.
+     * The constant DESC. This field is used to store the trip description.
      */
     public static final String DESC = "description";
     /**
-     * The constant MB.
+     * The constant MB. This field is used to store the milebuilder flag option in version 2
      */
     public static final String MB = "milebuilder";
     /**
-     * The constant DATEC.
+     * The constant DATEC. This field is used to store the datatime stamp of the record created
      */
     public static final String DATEC = "date_created";
     /**
-     * The constant STIME.
+     * The constant STIME. This field is used to store the start time.
      */
     public static final String STIME = "starttime";
     /**
@@ -75,13 +79,13 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     /**
      * The constant DB_NAME.
      */
-// Database Name defined
-    static final String DB_NAME = "SAIL_TALES19.DB";
+    // Database Name defined
+    static final String DB_NAME = "SAIL_TALES22.DB";
 
     /**
      * The constant DB_VERSION.
      */
-// database version defined
+    // database version defined
     static final int DB_VERSION = 1;
 
     // Creating DB table query
@@ -104,7 +108,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
      *
      * @param context the context
      */
-//Context of DB and verison
+    //Context of DB and verison
     public DatabaseHelper(Context context) {
         super(context, DB_NAME, null, DB_VERSION);
     }

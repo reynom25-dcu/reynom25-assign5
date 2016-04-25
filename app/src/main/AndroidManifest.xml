@@ -37,7 +37,7 @@
 
         <activity android:theme="@android:style/Theme.DeviceDefault.Light.Dialog"
             android:name=".compass"
-            android:label="Sail Tales Compass" />
+            android:label="Compass" />
     </application>
 
 </manifest>

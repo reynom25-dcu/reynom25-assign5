@@ -6,6 +6,7 @@ package com.example.marcusreynolds.sailtales;
  * @author Marcus Reynolds <marcus.reynolds25@mail.dcu.ie>
  * @version 1.0, 2016
  * @since 5/04/2016
+ *
  */
 import android.app.Activity;
 import android.app.DialogFragment;
@@ -17,6 +18,10 @@ import android.widget.Button;
 import android.widget.EditText;
 
 
+/**
+ * The type Add trip.
+ *
+ */
 public class AddTrip extends Activity implements View.OnClickListener {
 
     private Button add_time;
@@ -29,14 +34,16 @@ public class AddTrip extends Activity implements View.OnClickListener {
 
     private DBManager dbManager;
 
+
+    //Start activity
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        //Fragment title
         setTitle(getString(R.string.add_trip));
-
+        //Set layout
         setContentView(R.layout.fragment_addtrip);
-
         //Declare layout elements
         slocEditText = (EditText) findViewById(R.id.slocadd_edittext);
         flocEditText = (EditText) findViewById(R.id.flocadd_edittext);
@@ -45,20 +52,31 @@ public class AddTrip extends Activity implements View.OnClickListener {
         ttimeEditText = (EditText) findViewById(R.id.ttimeadd_edittext);
         add_time = (Button) findViewById(R.id.add_time);
         add_date = (Button) findViewById(R.id.add_date);
-
         Button addButton = (Button) findViewById(R.id.add_trip);
 
+        //Open database
         dbManager = new DBManager(this);
         dbManager.open();
         addButton.setOnClickListener(this);
     }
 
+    /**
+     * Show date picker dialog.
+     *
+     * @param v Opens Date Picker dialog fragment
+     * @return date selected by user
+     */
     public void showDatePickerDialog(View v) {
         DialogFragment newFragment = new DatePickerFragment();
         newFragment.show(getFragmentManager(), "datePicker");
 
     }
 
+    /**
+     * Show time picker dialog.
+     *
+     * @param v Time hour and minute selected by user.
+     */
     public void showTimePickerDialog(View v) {
         DialogFragment newFragment = new TimePickerFragment();
         newFragment.show(getFragmentManager(), "timePicker");
@@ -72,12 +90,19 @@ public class AddTrip extends Activity implements View.OnClickListener {
 
                 final String sloc = slocEditText.getText().toString();
                 final String floc = flocEditText.getText().toString();
-                final String dsnm = dsnmEditText.getText().toString();
+                String dsnm = dsnmEditText.getText().toString();
                 final String desc = descEditText.getText().toString();
                 final String stime = add_time.getText().toString();
                 final String sdate = add_date.getText().toString();
                 final String ttime = ttimeEditText.getText().toString();
+                Log.w("Addtrip", "dsnm = " + dsnm );
 
+                if(dsnm.matches("")) {
+                dsnm = "0";
+                }else{
+                    dsnm = dsnmEditText.getText().toString();
+                }
+                Log.w("Addtrip", "dsnm2 = " + dsnm );
 
                 dbManager.insert(sloc, floc, dsnm, desc, stime, sdate, ttime);
 

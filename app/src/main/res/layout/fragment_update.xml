@@ -42,7 +42,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="start"
             android:onClick="showDatePickerDialog"
-            android:text="Trip Date" />
+            android:text="@string/tdate" />
 
         <Button
             android:id="@+id/add_time"
@@ -51,7 +51,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="end"
             android:onClick="showTimePickerDialog"
-            android:text="Start Time" />
+            android:text="@string/stime" />
 
     </LinearLayout>
 

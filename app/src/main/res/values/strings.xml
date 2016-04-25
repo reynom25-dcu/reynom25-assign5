@@ -27,4 +27,8 @@
     <string name="NautMiles">Nautical Miles: </string>
     <string name="Date1">Date:</string>
     <string name="avgDistance">AVG Distance NM: </string>
+    <string name="txtview">TextView</string>
+    <string name="tdate">Trip Date</string>
+    <string name="stime">Start Time</string>
+    <string name="ttrips">Total Trips:</string>
 </resources>

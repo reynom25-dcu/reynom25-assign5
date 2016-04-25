@@ -24,7 +24,7 @@ import java.util.List;
  *
  * @author Marcus Reynolds <marcus.reynolds25@mail.dcu.ie>
  * @version 1.0, 2016
- * @since 5/04/2016
+ * @since 5 /04/2016
  */
 public class Summary extends Activity {
     private TextView ttView;
@@ -102,12 +102,8 @@ public class Summary extends Activity {
 
         double resultnum = Double.parseDouble(result);
         NMavg = resultnum / ttrips;
-        //avgDouble = Double.toString(NMavg);
-        //Log.i("Graph", "avgDouble = " + avgDouble);
         Log.i("Graph", "ttrips = " + ttrips);
         Log.i("Graph", "resultnm = " + resultnum);
-        //avgdsView.setText(avgDouble);
-        //tnmView.setText(result);
 
 
         double DNM0 = Double.parseDouble(DNM0A);
@@ -115,7 +111,6 @@ public class Summary extends Activity {
         double DNM2 = Double.parseDouble(DNM2A);
         double DNM3 = Double.parseDouble(DNM3A);
         double DNM4 = Double.parseDouble(DNM4A);
-        //double DNM0 = DNM0A;
 
         //Graphview plots the distance of the 5 most recent trips
         GraphView graph = (GraphView) findViewById(R.id.graph);
@@ -129,12 +124,16 @@ public class Summary extends Activity {
         graph.addSeries(series);
         //Second graph line to show average distance
 
+        Log.i("Graph", "VArray 0 = " + TN0);
+        Log.i("Graph", "VArray 1 = " + TN1);
+
         LineGraphSeries<DataPoint> series2 = new LineGraphSeries<DataPoint>(new DataPoint[] {
                 new DataPoint(TN0, NMavg),
                 new DataPoint(TN1, NMavg),
                 new DataPoint(TN2, NMavg),
                 new DataPoint(TN3, NMavg),
                 new DataPoint(TN4, NMavg)
+
         });
         series.setColor(Color.BLUE);
         series2.setColor(Color.RED);

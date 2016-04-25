@@ -1,6 +1,7 @@
 package com.example.marcusreynolds.sailtales;
 
 /**
+ * This is the listview. It handles the fetchlist cursor and displays the results to the listview
  * Created by marcusreynolds on 06/03/16.
  *
  * @author Marcus Reynolds <marcus.reynolds25@mail.dcu.ie>
@@ -43,7 +44,6 @@ public class ListTrips extends AppCompatActivity {
         setContentView(R.layout.fragment_list);
 
         //Code for floating AddTrip Butotn
-
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         assert fab != null;
         fab.setOnClickListener(new View.OnClickListener() {
@@ -56,7 +56,7 @@ public class ListTrips extends AppCompatActivity {
 
         dbManager = new DBManager(this);
         dbManager.open();
-        Cursor cursor = dbManager.fetch1();
+        Cursor cursor = dbManager.fetchlist();
 
         listView = (ListView) findViewById(R.id.list_view);
         listView.setEmptyView(findViewById(R.id.empty));
@@ -71,6 +71,9 @@ public class ListTrips extends AppCompatActivity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long viewId) {
+
+
+                //Fields to display record data in listview
                 TextView idTextView = (TextView) view.findViewById(R.id.id);
                 TextView slocTextView = (TextView) view.findViewById(R.id.sloc);
                 TextView dsnmTextView = (TextView) view.findViewById(R.id.dsnm);
@@ -79,6 +82,7 @@ public class ListTrips extends AppCompatActivity {
                 TextView descTextView = (TextView) view.findViewById(R.id.descView);
                 TextView flocTextView = (TextView) view.findViewById(R.id.flocView);
                 TextView ttimeTextView = (TextView) view.findViewById(R.id.ttimeView);
+
 
 
                 String id = idTextView.getText().toString();
@@ -92,6 +96,8 @@ public class ListTrips extends AppCompatActivity {
                 Log.i("Listtrip", "SDate = " + sdate);
                 Log.i("Listtrip", "STIME = " + R.id.stimeView);
 
+
+                // Item click will start update fragment and pass data from pressed record
                 Intent modify_intent = new Intent(getApplicationContext(), UpdateTrip.class);
                 modify_intent.putExtra("sloc", sloc);
                 modify_intent.putExtra("dsnm", dsnm);
@@ -107,13 +113,15 @@ public class ListTrips extends AppCompatActivity {
         });
     }
 
-
+    //Add menu to interface
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
     }
 
+
+    //Code to handle menu item clicks
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
 

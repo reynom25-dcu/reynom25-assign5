@@ -1,7 +1,12 @@
 package com.example.marcusreynolds.sailtales;
 
 /**
- * Created by marcusreynolds on 07/03/16.
+ *
+ *
+ * @author Marcus Reynolds <marcus.reynolds25@mail.dcu.ie>
+ * @version 1.0, 2016
+ * @since 5/04/2016
+ *
  */
 
 import android.app.Activity;
@@ -12,6 +17,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+/**
+ * The type Update trip.
+ */
 public class UpdateTrip extends Activity implements View.OnClickListener {
 
     private Button modButton;
@@ -73,12 +81,22 @@ public class UpdateTrip extends Activity implements View.OnClickListener {
         rmButton.setOnClickListener(this);
     }
 
+    /**
+     * Show date picker dialog.
+     *
+     * @param v the v
+     */
     public void showDatePickerDialog(View v) {
         DialogFragment newFragment = new DatePickerFragment();
         newFragment.show(getFragmentManager(), "datePicker");
 
     }
 
+    /**
+     * Show time picker dialog.
+     *
+     * @param v the v
+     */
     public void showTimePickerDialog(View v) {
         DialogFragment newFragment = new TimePickerFragment();
         newFragment.show(getFragmentManager(), "timePicker");
@@ -90,11 +108,16 @@ public class UpdateTrip extends Activity implements View.OnClickListener {
             case R.id.mod_button:
                 final String sloc = slocEditText.getText().toString();
                 final String floc = flocEditText.getText().toString();
-                final String dsnm = dsnmEditText.getText().toString();
+                String dsnm = dsnmEditText.getText().toString();
                 final String desc = descEditText.getText().toString();
                 final String ttime = ttimeEditText.getText().toString();
                 final String stime = add_time.getText().toString();
                 final String sdate = add_date.getText().toString();
+                if(dsnm.matches("")) {
+                    dsnm = "0";
+                }else{
+                    dsnm = dsnmEditText.getText().toString();
+                }
 
                 dbManager.update(_id, sloc, floc, dsnm, desc, stime, sdate, ttime);
                 this.returnHome();
@@ -107,6 +130,9 @@ public class UpdateTrip extends Activity implements View.OnClickListener {
         }
     }
 
+    /**
+     * Return home.
+     */
     public void returnHome() {
         Intent home_intent = new Intent(getApplicationContext(), ListTrips.class)
                 .setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
