@@ -1,13 +1,5 @@
 package com.example.marcusreynolds.sailtales.RSSReader;
 
-/**
- * Created by marcusreynolds on 06/03/16.
- *
- * @author Marcus Reynolds <marcus.reynolds25@mail.dcu.ie>
- * @version 1.0, 2016
- * @since 5/04/2016
- */
-
 import android.app.ListActivity;
 import android.content.Intent;
 import android.net.Uri;
@@ -31,7 +23,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by marcusreynolds on 02/04/16.
+ * This is the RSS reader code which is used from the site below. It is pulling a news feed from
+ * RYA.co.uk <p></p>
+ * https://androidresearch.wordpress.com/2012/01/21/creating-a-simple-rss-application-in-android/
+ *
+ * @author Marcus Reynolds <marcus.reynolds25@mail.dcu.ie> using code by Veaceslav Grec
+ * @version 1.0, 2016
+ * @since 05/04/2016
  */
 public class SimpleRSSReaderActivity extends ListActivity {
 
@@ -99,13 +97,19 @@ public class SimpleRSSReaderActivity extends ListActivity {
             e.printStackTrace();
         }
 
-    // Binding data
+    // Binding data to list
         ArrayAdapter adapter = new ArrayAdapter(this,
                 android.R.layout.simple_list_item_1, headlines);
 
         setListAdapter(adapter);
     }
 
+    /**
+     * Gets input stream.
+     *
+     * @param url the url
+     * @return the input stream
+     */
     public InputStream getInputStream(URL url) {
         try {
             return url.openConnection().getInputStream();
@@ -114,6 +118,7 @@ public class SimpleRSSReaderActivity extends ListActivity {
         }
     }
 
+    //Listen for item clicks and launch intent with associated URL of item.
     @Override
     protected void onListItemClick(ListView l, View v, int position, long id) {
         //Uri uri = Uri.parse(links.get(position));

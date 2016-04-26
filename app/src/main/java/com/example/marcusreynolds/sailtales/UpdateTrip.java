@@ -1,13 +1,6 @@
 package com.example.marcusreynolds.sailtales;
 
-/**
- *
- *
- * @author Marcus Reynolds <marcus.reynolds25@mail.dcu.ie>
- * @version 1.0, 2016
- * @since 5/04/2016
- *
- */
+
 
 import android.app.Activity;
 import android.app.DialogFragment;
@@ -18,7 +11,13 @@ import android.widget.Button;
 import android.widget.EditText;
 
 /**
- * The type Update trip.
+ *This code manages the update or deletion of records in the database. It works in a similar way to
+ * the Addtrip class using the same fields but also has a delete function.
+ *
+ * @author Marcus Reynolds <marcus.reynolds25@mail.dcu.ie>
+ * @version 1.0, 2016
+ * @since 05/04/2016
+ *
  */
 public class UpdateTrip extends Activity implements View.OnClickListener {
 
@@ -40,7 +39,8 @@ public class UpdateTrip extends Activity implements View.OnClickListener {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        setTitle("Modify Trip Details");
+        //Fragment Title
+        setTitle(getString(R.string.modtripdetails));
 
         setContentView(R.layout.fragment_update);
         dbManager = new DBManager(this);
@@ -68,7 +68,6 @@ public class UpdateTrip extends Activity implements View.OnClickListener {
         String ttime = intent.getStringExtra("ttime");
 
         _id = Long.parseLong(id);
-
         slocEditText.setText(sloc);
         flocEditText.setText(floc);
         dsnmEditText.setText(dsnm);
@@ -76,7 +75,6 @@ public class UpdateTrip extends Activity implements View.OnClickListener {
         ttimeEditText.setText(ttime);
         add_time.setText(stime);
         add_date.setText(sdate);
-
         modButton.setOnClickListener(this);
         rmButton.setOnClickListener(this);
     }
@@ -102,6 +100,7 @@ public class UpdateTrip extends Activity implements View.OnClickListener {
         newFragment.show(getFragmentManager(), "timePicker");
     }
 
+    //Onclick handler to update records in the database
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
@@ -113,16 +112,17 @@ public class UpdateTrip extends Activity implements View.OnClickListener {
                 final String ttime = ttimeEditText.getText().toString();
                 final String stime = add_time.getText().toString();
                 final String sdate = add_date.getText().toString();
+                //If the user enters a null value for distance it is replaced with a 0
                 if(dsnm.matches("")) {
                     dsnm = "0";
                 }else{
                     dsnm = dsnmEditText.getText().toString();
                 }
-
+            //Update record based on user input
                 dbManager.update(_id, sloc, floc, dsnm, desc, stime, sdate, ttime);
                 this.returnHome();
                 break;
-
+            //The delete button removes the selected record from the database
             case R.id.rm_button:
                 dbManager.delete(_id);
                 this.returnHome();
@@ -131,7 +131,7 @@ public class UpdateTrip extends Activity implements View.OnClickListener {
     }
 
     /**
-     * Return home.
+     * Return back to the listview.
      */
     public void returnHome() {
         Intent home_intent = new Intent(getApplicationContext(), ListTrips.class)

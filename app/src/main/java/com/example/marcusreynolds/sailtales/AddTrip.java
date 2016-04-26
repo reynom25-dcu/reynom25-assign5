@@ -1,13 +1,6 @@
 package com.example.marcusreynolds.sailtales;
 
-/**
- * Created by marcusreynolds on 06/03/16.
- *
- * @author Marcus Reynolds <marcus.reynolds25@mail.dcu.ie>
- * @version 1.0, 2016
- * @since 5/04/2016
- *
- */
+
 import android.app.Activity;
 import android.app.DialogFragment;
 import android.content.Intent;
@@ -17,11 +10,17 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
-
 /**
- * The type Add trip.
+ * This code is for adding a new trip. It handles adding a new record to the database from user input.
+ * <p></p>It uses date and time picker dialog fragments with code taken from
+ * http://developer.android.com/guide/topics/ui/controls/pickers.html
+ *
+ * @author Marcus Reynolds <marcus.reynolds25@mail.dcu.ie>
+ * @version 1.0, 2016
+ * @since 05/04/2016
  *
  */
+
 public class AddTrip extends Activity implements View.OnClickListener {
 
     private Button add_time;
@@ -64,7 +63,7 @@ public class AddTrip extends Activity implements View.OnClickListener {
      * Show date picker dialog.
      *
      * @param v Opens Date Picker dialog fragment
-     * @return date selected by user
+     *
      */
     public void showDatePickerDialog(View v) {
         DialogFragment newFragment = new DatePickerFragment();
@@ -76,13 +75,14 @@ public class AddTrip extends Activity implements View.OnClickListener {
      * Show time picker dialog.
      *
      * @param v Time hour and minute selected by user.
+     *
      */
     public void showTimePickerDialog(View v) {
         DialogFragment newFragment = new TimePickerFragment();
         newFragment.show(getFragmentManager(), "timePicker");
     }
 
-
+    //Add button click handler
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
@@ -96,7 +96,7 @@ public class AddTrip extends Activity implements View.OnClickListener {
                 final String sdate = add_date.getText().toString();
                 final String ttime = ttimeEditText.getText().toString();
                 Log.w("Addtrip", "dsnm = " + dsnm );
-
+                //If distance input is null then save a 0 value instead
                 if(dsnm.matches("")) {
                 dsnm = "0";
                 }else{
@@ -104,6 +104,7 @@ public class AddTrip extends Activity implements View.OnClickListener {
                 }
                 Log.w("Addtrip", "dsnm2 = " + dsnm );
 
+                //Insert new record with user values
                 dbManager.insert(sloc, floc, dsnm, desc, stime, sdate, ttime);
 
                 Intent main = new Intent(AddTrip.this, ListTrips.class)

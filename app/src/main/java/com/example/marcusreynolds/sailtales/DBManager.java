@@ -1,16 +1,5 @@
 package com.example.marcusreynolds.sailtales;
 
-/**
- *The purpose of this code is manage the SQLite database crud operations and other database queries.
- *
- *
- * @author Marcus Reynolds <marcus.reynolds25@mail.dcu.ie>
- * @version 1.0, 2016
- * @since 5/04/2016
- *
- *
- */
-
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -19,13 +8,22 @@ import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 
 /**
- * The type Db manager.
+ *The purpose of this code is manage the SQLite database crud operations and other database queries.
+ * It uses some code developed by Anupam Chugh found at the link below <p></p>
+ * http://www.journaldev.com/9438/android-sqlite-database-example-tutorial
+ *
+ *
+ * @author Marcus Reynolds <marcus.reynolds25@mail.dcu.ie>
+ * @version 1.0, 2016
+ * @since 05/04/2016
+ *
+ *
  */
+
 public class DBManager {
 
     private DatabaseHelper dbHelper;
     private Context context;
-
     private SQLiteDatabase database;
 
     /**
@@ -67,7 +65,7 @@ public class DBManager {
      * @param sdate the start data
      * @param ttime the total time
      */
-//Creating DB record
+    //Creating DB record
     public void insert(String sloc, String floc, String dsnm, String desc, String stime, String sdate, String ttime) {
         ContentValues contentValue = new ContentValues();
         contentValue.put(DatabaseHelper.SLOC, sloc);
@@ -144,7 +142,7 @@ public class DBManager {
      * @param ttime the total time
      * @return the int
      */
-//Updating DB record content
+    //Updating DB record content
     public int update(long _id, String sloc, String floc, String dsnm, String desc, String stime, String sdate, String ttime) {
         ContentValues contentValues = new ContentValues();
         contentValues.put(DatabaseHelper.SLOC, sloc);
@@ -163,7 +161,7 @@ public class DBManager {
      *
      * @param _id the id associated with the record to be deleted
      */
-//Deleting DB record
+    //Deleting DB record
     public void delete(long _id) {
         database.delete(DatabaseHelper.TABLE_NAME, DatabaseHelper._ID + "=" + _id, null);
     }

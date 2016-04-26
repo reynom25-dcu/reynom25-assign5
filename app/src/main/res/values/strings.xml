@@ -31,4 +31,6 @@
     <string name="tdate">Trip Date</string>
     <string name="stime">Start Time</string>
     <string name="ttrips">Total Trips:</string>
+    <string name="modtripdetails">Modify Trip Details</string>
+    <string name="stats">Statistics</string>
 </resources>

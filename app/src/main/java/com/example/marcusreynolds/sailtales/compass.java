@@ -1,12 +1,6 @@
 package com.example.marcusreynolds.sailtales;
 
-/**
- *
- *
- * @author Marcus Reynolds <marcus.reynolds25@mail.dcu.ie>
- * @version 1.0, 2016
- * @since 5/04/2016
- */
+
 import android.app.Activity;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
@@ -19,11 +13,17 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 /**
- * The type Compass.
+ *This class handles the compass and sensor interaction. Points to true north.
+ *
+ * @author Marcus Reynolds <marcus.reynolds25@mail.dcu.ie>
+ *     using code adapted from Mike Dalisay
+ *     https://www.codeofaninja.com/2013/08/android-compass-code-example.html
+ * @version 1.0, 2016
+ * @since 05/04/2016
  */
 public class compass extends Activity implements SensorEventListener {
 
-    // define the display assembly compass picture
+    // define the display assembly custom compass picture
     private ImageView image;
 
     // record the compass picture angle turned

@@ -1,13 +1,6 @@
 package com.example.marcusreynolds.sailtales;
 
-/**
- * This is the listview. It handles the fetchlist cursor and displays the results to the listview
- * Created by marcusreynolds on 06/03/16.
- *
- * @author Marcus Reynolds <marcus.reynolds25@mail.dcu.ie>
- * @version 1.0, 2016
- * @since 5/04/2016
- */
+
 
 import android.content.Intent;
 import android.database.Cursor;
@@ -24,14 +17,30 @@ import android.widget.TextView;
 import android.support.design.widget.FloatingActionButton;
 import com.example.marcusreynolds.sailtales.RSSReader.SimpleRSSReaderActivity;
 
+/**
+ * This is the listview. It handles the fetchlist cursor and displays the results to the listview
+ * Created by marcusreynolds on 06/03/16.<p></p>
+ * It uses some code developed by Anupam Chugh found at the link below <p></p>
+ * http://www.journaldev.com/9438/android-sqlite-database-example-tutorial
+ *
+ * @author Marcus Reynolds <marcus.reynolds25@mail.dcu.ie>
+ * @version 1.0, 2016
+ * @since 05/04/2016
+ */
 public class ListTrips extends AppCompatActivity {
 
     private DBManager dbManager;
     private ListView listView;
     private SimpleCursorAdapter adapter;
+    /**
+     * The Columns used in the listview
+     */
     //DB Columns that are use din the listview
     final String[] columns = new String[] { DatabaseHelper._ID, DatabaseHelper.SLOC, DatabaseHelper.DSNM,
             DatabaseHelper.SDATE, DatabaseHelper.STIME, DatabaseHelper.DESC, DatabaseHelper.FLOC, DatabaseHelper.TTIME};
+    /**
+     * The array of layout objects to assign to database fields
+     */
     //Array of layout objects to assign to database fields
     final int[] to = new int[] { R.id.id, R.id.sloc, R.id.dsnm ,R.id.sdate, R.id.stimeView, R.id.descView, R.id.flocView, R.id.ttimeView };
 
@@ -83,8 +92,6 @@ public class ListTrips extends AppCompatActivity {
                 TextView flocTextView = (TextView) view.findViewById(R.id.flocView);
                 TextView ttimeTextView = (TextView) view.findViewById(R.id.ttimeView);
 
-
-
                 String id = idTextView.getText().toString();
                 String sloc = slocTextView.getText().toString();
                 String dsnm = dsnmTextView.getText().toString();
@@ -119,7 +126,6 @@ public class ListTrips extends AppCompatActivity {
         getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
     }
-
 
     //Code to handle menu item clicks
     @Override

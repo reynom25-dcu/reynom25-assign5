@@ -1,13 +1,5 @@
 package com.example.marcusreynolds.sailtales;
 
-/**
- * Created by marcusreynolds on 06/03/16.
- *
- * @author Marcus Reynolds <marcus.reynolds25@mail.dcu.ie>
- * @version 1.0, 2016
- * @since 5/04/2016
- */
-
 import java.util.Calendar;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
@@ -20,7 +12,12 @@ import android.widget.DatePicker;
 /**
  * The type Date picker fragment.
  *
+ *  <p></p>It uses date picker dialog fragments with code taken from
+ * http://developer.android.com/guide/topics/ui/controls/pickers.html
  *
+ * @author Marcus Reynolds <marcus.reynolds25@mail.dcu.ie>
+ * @version 1.0, 2016
+ * @since 05/04/2016
  */
 public class DatePickerFragment extends DialogFragment implements DatePickerDialog.OnDateSetListener{
 
@@ -38,7 +35,7 @@ public class DatePickerFragment extends DialogFragment implements DatePickerDial
     }
 
     public void onDateSet(DatePicker view, int year, int month, int day) {
-        // Add month +1 to compensate for stating at month 0
+        // Add month +1 to compensate for starting at month 0
         int month1 = month+1;
 
         Log.w("DatePicker", "Date = " + year);

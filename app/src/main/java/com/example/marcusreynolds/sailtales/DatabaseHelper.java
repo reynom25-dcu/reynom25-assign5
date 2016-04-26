@@ -1,22 +1,18 @@
 package com.example.marcusreynolds.sailtales;
 
-/**
- *This is code that manages the database schema. It defines the database structure. It also
- * creates the database on first install.
- *
- * @author Marcus Reynolds <marcus.reynolds25@mail.dcu.ie>
- * @version 1.0, 2016
- * @since 5/04/2016
- *
- *
- *
- */
+
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 /**
- * The type Database helper.
+ *This is code that manages the database schema. It defines the database structure. It also
+ * creates the database on first install. In future it can be used to upgrade the DB.
+ *
+ * @author Marcus Reynolds <marcus.reynolds25@mail.dcu.ie>
+ * @version 1.0, 2016
+ * @since 05/04/2016
+ *
  */
 public class DatabaseHelper extends SQLiteOpenHelper {
 
@@ -68,27 +64,25 @@ public class DatabaseHelper extends SQLiteOpenHelper {
      */
     public static final String STIME = "starttime";
     /**
-     * The constant SDATE.
+     * The constant SDATE. This field is used to store the start date.
      */
     public static final String SDATE = "startdate";
     /**
-     * The constant TTIME.
+     * The constant TTIME. This field is used to store the total time.
      */
     public static final String TTIME = "triptime";
 
     /**
-     * The constant DB_NAME.
+     * The constant DB_NAME stores the Database name.
      */
-    // Database Name defined
-    static final String DB_NAME = "SAIL_TALES22.DB";
+    static final String DB_NAME = "SAIL_TALES23.DB";
 
     /**
-     * The constant DB_VERSION.
+     * The constant DB_VERSION is the current DB version number.
      */
-    // database version defined
     static final int DB_VERSION = 1;
 
-    // Creating DB table query
+    // Creating DB table query with columns and data type.
     private static final String CREATE_TABLE = "create table " + TABLE_NAME +
             "( " + _ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
             + SLOC + " TEXT NOT NULL, "
@@ -104,23 +98,22 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             + MB + " TEXT);";
 
     /**
-     * Instantiates a new Database helper.
+     * Check for existing install of database name and database version
      *
      * @param context the context
      */
-    //Context of DB and verison
     public DatabaseHelper(Context context) {
         super(context, DB_NAME, null, DB_VERSION);
     }
 
-    //Oncreate execute SQL make DB and table
+    //Oncreate execute SQL code and xreate DB and table and columns.
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL(CREATE_TABLE);
     }
 
 
-    //Upgrade DB Check
+    //Upgrade DB old version with new version
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME);
