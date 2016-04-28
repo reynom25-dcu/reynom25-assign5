@@ -15,6 +15,7 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.support.design.widget.FloatingActionButton;
+
 import com.example.marcusreynolds.sailtales.RSSReader.SimpleRSSReaderActivity;
 
 /**
@@ -149,7 +150,7 @@ public class ListTrips extends AppCompatActivity {
 
         if (id == R.id.compass) {
 
-            Intent compass = new Intent(this, compass.class);
+            Intent compass = new Intent(this, com.example.marcusreynolds.sailtales.Compass.compass.class);
             startActivity(compass);
 
         }

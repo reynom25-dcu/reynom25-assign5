@@ -1,4 +1,4 @@
-package com.example.marcusreynolds.sailtales;
+package com.example.marcusreynolds.sailtales.Compass;
 
 
 import android.app.Activity;
@@ -11,6 +11,8 @@ import android.view.animation.Animation;
 import android.view.animation.RotateAnimation;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.example.marcusreynolds.sailtales.R;
 
 /**
  *This class handles the compass and sensor interaction. Points to true north.
@@ -33,7 +35,7 @@ public class compass extends Activity implements SensorEventListener {
     private SensorManager mSensorManager;
 
     /**
-     * The Tv heading.
+     * The Tv heading giving the viewer the digital bearing.
      */
     TextView tvHeading;
 

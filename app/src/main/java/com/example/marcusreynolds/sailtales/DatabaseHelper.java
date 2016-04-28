@@ -75,14 +75,15 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     /**
      * The constant DB_NAME stores the Database name.
      */
-    static final String DB_NAME = "SAIL_TALES23.DB";
+    static final String DB_NAME = "SAIL_TALES.DB";
 
     /**
      * The constant DB_VERSION is the current DB version number.
      */
     static final int DB_VERSION = 1;
 
-    // Creating DB table query with columns and data type.
+    // Creating DB table query with columns and data type. There are some unused fields which will be
+    //* used in version 2.
     private static final String CREATE_TABLE = "create table " + TABLE_NAME +
             "( " + _ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
             + SLOC + " TEXT NOT NULL, "

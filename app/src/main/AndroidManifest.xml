@@ -36,7 +36,7 @@
             android:label="Sailing News" />
 
         <activity android:theme="@android:style/Theme.DeviceDefault.Light.Dialog"
-            android:name=".compass"
+            android:name=".Compass.compass"
             android:label="Compass" />
     </application>
 
